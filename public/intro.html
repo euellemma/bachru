@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App Onboarding</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #f0f0f0;
+        overflow: hidden;
+      }
+
+      .box {
+        position: absolute;
+        width: 400px;
+        height: 500px;
+        background: #ffeb3b;
+        border: 8px solid #000;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 20px 20px;
+        box-sizing: border-box;
+        font-family: "Comic Sans MS", cursive;
+      }
+
+      .label {
+        position: absolute;
+        top: -30px;
+        font-size: 36px;
+        font-weight: bold;
+        transform: rotate(-5deg);
+      }
+
+      .item {
+        font-size: 24px;
+        margin: 10px 0;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .item span {
+        display: inline-block;
+      }
+
+      .hand {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="purple" d="M12 2L2 22h20L12 2zm0 4l6 12H6l6-12z"/></svg>')
+          no-repeat center;
+        background-size: contain;
+        pointer-events: none;
+      }
+
+      /* Animations */
+      @keyframes slideIn {
+        0% {
+          transform: translateX(-100%) scale(0.8);
+        }
+        80% {
+          transform: translateX(10%) scale(1.1);
+        }
+        100% {
+          transform: translateX(0) scale(1);
+        }
+      }
+
+      @keyframes slideOut {
+        0% {
+          transform: translateX(0) scale(1);
+        }
+        100% {
+          transform: translateX(-100%) scale(0.5) rotate(10deg);
+        }
+      }
+
+      @keyframes slideInRight {
+        0% {
+          transform: translateX(100%) scale(0.9);
+        }
+        80% {
+          transform: translateX(-10%) scale(1.1);
+        }
+        100% {
+          transform: translateX(0) scale(1);
+        }
+      }
+
+      @keyframes slideOutRight {
+        0% {
+          transform: translateX(0) scale(1);
+        }
+        100% {
+          transform: translateX(100%) scale(0.5) rotate(-15deg);
+        }
+      }
+
+      @keyframes popIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-50px) scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(0) scale(1.2);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes tap {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes glow {
+        0% {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #ff00ff;
+        }
+        100% {
+          border-color: transparent;
+        }
+      }
+
+      @keyframes expand {
+        0% {
+          height: 40px;
+        }
+        80% {
+          height: 140px;
+          transform: scaleX(1.1);
+        }
+        100% {
+          height: 140px;
+          transform: scaleX(1);
+        }
+      }
+
+      @keyframes slideSub {
+        0% {
+          opacity: 0;
+          transform: translateX(-50px) scaleX(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0) scaleX(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="topicBox" class="box">
+      <div class="label">Topic</div>
+      <div class="item"><span>📖</span> Read</div>
+      <div class="item"><span>▶️</span> Videos</div>
+      <div class="item"><span>🤖</span> AI Simplified</div>
+      <div class="item"><span>💡</span> Fun Facts</div>
+      <div class="item" id="quizItem"><span>⭐</span> Quiz</div>
+    </div>
+    <div id="quizBox" class="box" style="background: #ff5722; display: none">
+      <div class="label">Quiz</div>
+      <div class="item"><span>💬</span> Explanations</div>
+      <div class="item"><span>🔍</span> Hints</div>
+      <div class="item"><span>📚</span> Read Topics</div>
+      <div class="item" id="studyPlan" style="height: 40px">
+        <span>📅</span> Study Plan
+      </div>
+    </div>
+    <div id="hand" class="hand" style="display: none"></div>
+
+    <script>
+      const topicBox = document.getElementById("topicBox");
+      const quizBox = document.getElementById("quizBox");
+      const hand = document.getElementById("hand");
+      const quizItem = document.getElementById("quizItem");
+      const studyPlan = document.getElementById("studyPlan");
+
+      // Step 1: Topic Box In
+      topicBox.style.animation = "slideIn 0.4s forwards";
+      setTimeout(() => {
+        const items = topicBox.querySelectorAll(".item");
+        items.forEach((item, i) => {
+          setTimeout(() => {
+            item.style.animation = "popIn 0.2s forwards";
+            // Trigger "thud" sound here
+          }, i * 300);
+        });
+      }, 400);
+
+      // Step 2: Hand Clicks Quiz
+      setTimeout(() => {
+        hand.style.display = "block";
+        hand.style.top = `${quizItem.offsetTop - 50}px`;
+        hand.style.left = "500px";
+        hand.style.animation = "slideInRight 0.3s forwards";
+        setTimeout(() => {
+          hand.style.animation = "tap 0.2s";
+          quizItem.style.animation = "popIn 0.2s, glow 0.2s";
+          // Trigger "click" sound here
+        }, 500); // Hover 0.2s after 0.3s entry
+      }, 1900); // After items finish (1.5s + 0.4s)
+
+      // Step 3: Quiz Box In
+      setTimeout(() => {
+        topicBox.style.animation = "slideOut 0.3s forwards";
+        // Trigger "whoosh" sound here
+        setTimeout(() => {
+          topicBox.style.display = "none";
+          quizBox.style.display = "block";
+          quizBox.style.animation = "slideInRight 0.4s forwards";
+          // Trigger "bam" sound here
+          setTimeout(() => {
+            const items = quizBox.querySelectorAll(".item");
+            items.forEach((item, i) => {
+              setTimeout(() => {
+                item.style.animation = "popIn 0.2s forwards";
+                // Trigger "thud" sound here
+              }, i * 300);
+            });
+          }, 400);
+        }, 300);
+      }, 2600); // After hand tap (1.9s + 0.7s)
+
+      // Step 4: Study Plan Expands
+      setTimeout(() => {
+        studyPlan.style.animation = "expand 0.3s forwards";
+        // Trigger "boing" sound here
+        setTimeout(() => {
+          studyPlan.innerHTML += `
+                    <div class="item" style="margin-left: 20px; animation: slideSub 0.2s forwards;"><span>😓</span> Weak Topics</div>
+                    <div class="item" style="margin-left: 20px; animation: slideSub 0.2s forwards 0.2s;"><span>💪</span> Strong Topics</div>
+                `;
+          setTimeout(() => {
+            const weakTopics = document.createElement("div");
+            weakTopics.innerHTML = `
+                        <div class="item" style="margin-left: 40px;"><span>🧮</span> Math Basics</div>
+                        <div class="item" style="margin-left: 40px;"><span>⚗️</span> Science 101</div>
+                    `;
+            studyPlan.appendChild(weakTopics);
+            weakTopics.querySelectorAll(".item").forEach((item, i) => {
+              setTimeout(() => {
+                item.style.animation = "popIn 0.2s forwards";
+                // Trigger "thud" sound here
+              }, i * 200);
+            });
+            setTimeout(() => {
+              const mathBasics = weakTopics.children[0];
+              hand.style.top = `${mathBasics.offsetTop - 50}px`;
+              hand.style.left = "500px";
+              hand.style.animation = "slideInRight 0.3s forwards";
+              setTimeout(() => {
+                hand.style.animation = "tap 0.2s";
+                mathBasics.style.animation = "popIn 0.2s, glow 0.2s";
+                // Trigger "click" sound here
+              }, 500); // Hover 0.2s after 0.3s entry
+            }, 400); // After weak topics
+          }, 400); // After sub-items
+        }, 300); // After expand
+      }, 4500); // After quiz items (2.6s + 1.9s)
+
+      // Step 5: Loop Back to Topic Box
+      setTimeout(() => {
+        quizBox.style.animation = "slideOutRight 0.3s forwards";
+        // Trigger "whoosh" sound here
+        setTimeout(() => {
+          quizBox.style.display = "none";
+          topicBox.style.display = "block";
+          topicBox.style.animation = "slideIn 0.4s forwards";
+          setTimeout(() => {
+            const items = topicBox.querySelectorAll(".item");
+            items.forEach((item, i) => {
+              item.style.opacity = "0"; // Reset
+              setTimeout(() => {
+                item.style.animation = "popIn 0.2s forwards";
+                // Trigger "thud" sound here
+              }, i * 300);
+            });
+          }, 400);
+        }, 300);
+      }, 6100); // After hand tap (4.5s + 1.6s)
+    </script>
+  </body>
+</html>

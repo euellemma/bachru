@@ -1,0 +1,481 @@
+
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
