@@ -10,16 +10,14 @@
     ArrowLeft,
     User,
     FileCheck,
+    GraduationCap,
   } from "lucide-svelte";
+  import { blur } from "svelte/transition";
   import { permstate, save } from "$lib/state.svelte";
   import { fields, years, grades } from "../config";
+  import { getCourseForEduFocus } from "$lib/api";
 
-  import { onMount } from "svelte";
-  onMount(() => {
-    permstate.userInfo.eduFocus = "highschool";
-    save(permstate);
-  });
-
+  let eduFocus = $state(permstate.userInfo.eduFocus || "highschool");
   let dept = $state(permstate.userInfo.dept || fields[0].value);
   let yearOfStudy = $state(permstate.userInfo.yearOfStudy || years[0].value);
   let gender = $state(permstate.userInfo.gender || "male");
@@ -33,18 +31,34 @@
           "Select your year"),
   );
 
-  $effect(() => {
+  $effect(async () => {
+    permstate.userInfo.grade = grade;
     permstate.userInfo.dept = dept;
+    permstate.userInfo.eduFocus = eduFocus;
+    save(permstate);
+
+    const deptOrGrade = eduFocus === "highschool" ? grade : dept;
+
+    try {
+      const response = await getCourseForEduFocus(eduFocus, deptOrGrade);
+      if (response.data) {
+        permstate.myCourses = response.data;
+        save(permstate);
+      }
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    }
+  });
+
+  $effect(() => {
     permstate.userInfo.yearOfStudy = yearOfStudy;
     permstate.userInfo.gender = gender;
     permstate.userInfo.examFocus = examFocus;
-    permstate.userInfo.grade = grade;
-
     save(permstate);
   });
 </script>
 
-<div class="bg-blue-500">
+<div in:blur={{ duration: 150 }} class="bg-blue-500">
   <div class="px-4 py-6 rounded-b-3xl">
     <div class="flex mb-4 gap-2">
       <div class="flex-grow">
@@ -66,7 +80,39 @@
   </div>
 
   <div class="bg-white rounded-t-3xl py-4 px-4">
-    {#if permstate.userInfo.eduFocus == "highschool"}
+    <!-- Educational Focus -->
+    <div class="w-full md:w-[280px] mb-4">
+      <div class="flex items-center gap-2 mb-2 text-gray-800 text-left">
+        <GraduationCap class="w-5 h-5" />
+        <span>Educational Focus</span>
+      </div>
+      <Select.Root type="single" name="eduFocus" bind:value={eduFocus}>
+        <Select.Trigger
+          class="w-full md:w-[280px] py-6 bg-white text-gray-800 font-bold border-gray-300"
+        >
+          {eduFocus === "highschool"
+            ? "Highschool"
+            : eduFocus === "undergrad"
+              ? "University"
+              : "Exit Exam"}
+        </Select.Trigger>
+        <Select.Content>
+          <Select.Group>
+            <Select.Item value="highschool" label="Highschool"
+              >Highschool</Select.Item
+            >
+            <Select.Item value="undergrad" label="University"
+              >University</Select.Item
+            >
+            <Select.Item value="exitexam" label="Exit Exam"
+              >Exit Exam</Select.Item
+            >
+          </Select.Group>
+        </Select.Content>
+      </Select.Root>
+    </div>
+
+    {#if eduFocus == "highschool"}
       <div class="w-full max-w-md mx-auto mb-4">
         <div class="flex items-center gap-2 mb-4 text-gray-800 text-left">
           <Calendar class="w-5 h-5" />

@@ -1,169 +1,3638 @@
 This file is a merged representation of the entire codebase, combined into a single document by Repomix.
 
-<file_summary>
-This section contains a summary of this file.
+# File Summary
 
-<purpose>
+## Purpose
 This file contains a packed representation of the entire repository's contents.
 It is designed to be easily consumable by AI systems for analysis, code review,
 or other automated processes.
-</purpose>
 
-<file_format>
+## File Format
 The content is organized as follows:
 1. This summary section
 2. Repository information
 3. Directory structure
-4. Repository files, each consisting of:
-  - File path as an attribute
-  - Full contents of the file
-</file_format>
+4. Multiple file entries, each consisting of:
+  a. A header with the file path (## File: path/to/file)
+  b. The full contents of the file in a code block
 
-<usage_guidelines>
+## Usage Guidelines
 - This file should be treated as read-only. Any changes should be made to the
   original repository files, not this packed version.
 - When processing this file, use the file path to distinguish
   between different files in the repository.
 - Be aware that this file may contain sensitive information. Handle it with
   the same level of security as you would the original repository.
-</usage_guidelines>
 
-<notes>
+## Notes
 - Some files may have been excluded based on .gitignore rules and Repomix's configuration
 - Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
 - Files matching patterns in .gitignore are excluded
 - Files matching default ignore patterns are excluded
 - Files are sorted by Git change count (files with more changes are at the bottom)
-</notes>
 
-<additional_info>
+## Additional Info
 
-</additional_info>
+# Directory Structure
+```
+agents/
+  .eslintrc.cjs
+  agent-utils.js
+  extract-pdf.js
+  gen-outline.js
+  gen-quiz.js
+  gen-slides.js
+  mini-outline.js
+  oldstuff.js
+  package.json
+  parse-exams.js
+  sampleing
+public/
+  intro.html
+src/
+  lib/
+    components/
+      ui/
+        avatar/
+          avatar-fallback.svelte
+          avatar-image.svelte
+          avatar.svelte
+          index.ts
+        button/
+          button.svelte
+          index.ts
+        card/
+          card-content.svelte
+          card-description.svelte
+          card-footer.svelte
+          card-header.svelte
+          card-title.svelte
+          card.svelte
+          index.ts
+        checkbox/
+          checkbox.svelte
+          index.ts
+        command/
+          command-dialog.svelte
+          command-empty.svelte
+          command-group.svelte
+          command-input.svelte
+          command-item.svelte
+          command-link-item.svelte
+          command-list.svelte
+          command-separator.svelte
+          command-shortcut.svelte
+          command.svelte
+          index.ts
+        dialog/
+          dialog-content.svelte
+          dialog-description.svelte
+          dialog-footer.svelte
+          dialog-header.svelte
+          dialog-overlay.svelte
+          dialog-title.svelte
+          index.ts
+        input/
+          index.ts
+          input.svelte
+        label/
+          index.ts
+          label.svelte
+        popover/
+          index.ts
+          popover-content.svelte
+        progress/
+          index.ts
+          progress.svelte
+        radio-group/
+          index.ts
+          radio-group-item.svelte
+          radio-group.svelte
+        select/
+          index.ts
+          select-content.svelte
+          select-group-heading.svelte
+          select-item.svelte
+          select-scroll-down-button.svelte
+          select-scroll-up-button.svelte
+          select-separator.svelte
+          select-trigger.svelte
+        separator/
+          index.ts
+          separator.svelte
+        skeleton/
+          index.ts
+          skeleton.svelte
+        textarea/
+          index.ts
+          textarea.svelte
+    mycomps/
+      Combobox.svelte
+      Question.svelte
+    api.ts
+    mock.ts
+    myutils.ts
+    state.svelte.ts
+    utils.ts
+  routes/
+    Course.svelte
+    Exitexam.svelte
+    Home.svelte
+    IntroFour.svelte
+    IntroOne.svelte
+    IntroThree.svelte
+    IntroTwo.svelte
+    MainScreen.svelte
+    Matric.svelte
+    MatricSubjects.svelte
+    Module.svelte
+    News.svelte
+    PastExams.svelte
+    PostQuiz.svelte
+    QuestType.svelte
+    Quiz.svelte
+    Report.svelte
+    SearchCourse.svelte
+    SelectCourses.svelte
+    SelectTopics.svelte
+    Settings.svelte
+    StudyPlan.svelte
+    Topic.old.svelte
+    Topic.svelte
+  app.css
+  App.svelte
+  config.ts
+  main.ts
+  types.d.ts
+  vite-env.d.ts
+.gitignore
+components.json
+eslint.config.js
+index.html
+mynotes.md
+package.json
+postcss.config.js
+README.md
+svelte.config.js
+tailwind.config.ts
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+```
 
-</file_summary>
+# Files
 
-<directory_structure>
-lib/
-  components/
-    ui/
-      avatar/
-        avatar-fallback.svelte
-        avatar-image.svelte
-        avatar.svelte
-        index.ts
-      button/
-        button.svelte
-        index.ts
-      card/
-        card-content.svelte
-        card-description.svelte
-        card-footer.svelte
-        card-header.svelte
-        card-title.svelte
-        card.svelte
-        index.ts
-      checkbox/
-        checkbox.svelte
-        index.ts
-      command/
-        command-dialog.svelte
-        command-empty.svelte
-        command-group.svelte
-        command-input.svelte
-        command-item.svelte
-        command-link-item.svelte
-        command-list.svelte
-        command-separator.svelte
-        command-shortcut.svelte
-        command.svelte
-        index.ts
-      dialog/
-        dialog-content.svelte
-        dialog-description.svelte
-        dialog-footer.svelte
-        dialog-header.svelte
-        dialog-overlay.svelte
-        dialog-title.svelte
-        index.ts
-      input/
-        index.ts
-        input.svelte
-      label/
-        index.ts
-        label.svelte
-      popover/
-        index.ts
-        popover-content.svelte
-      progress/
-        index.ts
-        progress.svelte
-      radio-group/
-        index.ts
-        radio-group-item.svelte
-        radio-group.svelte
-      select/
-        index.ts
-        select-content.svelte
-        select-group-heading.svelte
-        select-item.svelte
-        select-scroll-down-button.svelte
-        select-scroll-up-button.svelte
-        select-separator.svelte
-        select-trigger.svelte
-      separator/
-        index.ts
-        separator.svelte
-      skeleton/
-        index.ts
-        skeleton.svelte
-      textarea/
-        index.ts
-        textarea.svelte
-  mycomps/
-    Combobox.svelte
-    Question.svelte
-  api.ts
-  mock.ts
-  myutils.ts
-  state.svelte.ts
-  utils.ts
-routes/
-  Course.svelte
-  Exitexam.svelte
-  Home.svelte
-  IntroFour.svelte
-  IntroOne.svelte
-  IntroThree.svelte
-  IntroTwo.svelte
-  MainScreen.svelte
-  Matric.svelte
-  MatricSubjects.svelte
-  Module.svelte
-  News.svelte
-  PastExams.svelte
-  PostQuiz.svelte
-  QuestType.svelte
-  Quiz.svelte
-  Report.svelte
-  SearchCourse.svelte
-  SelectCourses.svelte
-  SelectTopics.svelte
-  Settings.svelte
-  StudyPlan.svelte
-  Topic.old.svelte
-  Topic.svelte
-app.css
-App.svelte
-config.ts
-main.ts
-types.d.ts
-vite-env.d.ts
-</directory_structure>
+## File: agents/.eslintrc.cjs
+````
+module.exports = {
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "overrides": [
+        {
+            "env": {
+                "node": true
+            },
+            "files": [
+                ".eslintrc.{js,cjs}"
+            ],
+            "parserOptions": {
+                "sourceType": "script"
+            }
+        }
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+    }
+}
+````
 
-<files>
-This section contains the contents of the repository's files.
+## File: agents/agent-utils.js
+````javascript
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import fs from "fs";
 
-<file path="lib/components/ui/avatar/avatar-fallback.svelte">
+const openrkey =
+  "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";
+const model = "google/gemini-2.0-flash-001";
+
+function findMaxPage(textbookContent) {
+  let maxPage = 0;
+  let found = false;
+  const pagePattern = /<!--\s*page\s*(\d+)\s*-->/gi; // Case-insensitive and global
+
+  let match;
+  while ((match = pagePattern.exec(textbookContent)) !== null) {
+    found = true;
+    const pageNum = parseInt(match[1], 10);
+    if (isNaN(pageNum)) {
+      console.warn("Invalid page number found:", match[1]);
+      continue;
+    }
+
+    maxPage = Math.max(maxPage, pageNum);
+  }
+
+  if (!found) {
+    throw new Error("No Pages Found");
+  }
+
+  return maxPage;
+}
+
+export function extractContent(textbookContent, pageStart, pageEnd) {
+  let maxPage = findMaxPage(textbookContent);
+  const adjustedStart = Math.max(1, Math.min(pageStart - 1, maxPage));
+  const adjustedEnd = Math.min(maxPage, Math.max(pageEnd + 1, 1));
+  const startMarkerPattern = new RegExp(
+    `<!--\\s*page\\s*${adjustedStart}\\s*-->`,
+    "gi",
+  );
+  const endMarkerPattern = new RegExp(
+    `<!--\\s*page\\s*${adjustedEnd}\\s*-->`,
+    "gi",
+  );
+
+  let startPos = -1;
+  let endPos = -1;
+  let startMatch;
+  if ((startMatch = startMarkerPattern.exec(textbookContent)) !== null) {
+    startPos = startMatch.index;
+  }
+  let endMatch;
+  if ((endMatch = endMarkerPattern.exec(textbookContent)) !== null) {
+    endPos = endMatch.index + endMatch[0].length;
+  }
+
+  if (startPos === -1 || endPos === -1) {
+    throw new Error("Could not find specified page markers");
+  }
+
+  // Extract the content between markers
+  const extractedContent = textbookContent.substring(startPos, endPos);
+  return extractedContent;
+}
+
+export async function retry(asyncFn, maxRetries = 7, delay = 1000) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await asyncFn();
+    } catch (error) {
+      console.error(`Attempt ${i + 1} failed:`, error);
+      if (i === maxRetries - 1) {
+        throw error; // Re-throw the error if all retries failed
+      }
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+}
+
+async function retryJsonParse(asyncFn, maxAttempts = 5, delayMs = 2000) {
+  let attempts = 0;
+
+  const tryParse = async () => {
+    let result;
+    try {
+      attempts++;
+
+      // Run the provided async function
+      result = await asyncFn();
+
+      // Try to parse the result as JSON
+      const parsed = JSON.parse(result);
+      return parsed;
+    } catch (error) {
+      const randomFilename = `attempt${attempts}-${Math.random().toString(36).substring(7)}.json`;
+      fs.writeFileSync(randomFilename, result);
+      console.log(
+        `Attempt ${attempts} failed: ${error.message}; written to ${randomFilename}`,
+      );
+
+      // If we haven't exceeded max attempts, wait and try again
+      if (attempts < maxAttempts) {
+        console.log(`Retrying in ${delayMs / 1000} seconds...`);
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+        console.log("Retrying now...");
+        return tryParse();
+      }
+
+      // If we've exceeded max attempts, throw the error
+      throw new Error(`Failed to parse JSON after ${maxAttempts} attempts`);
+    }
+  };
+
+  return tryParse();
+}
+
+export const callModel = (prompt, { json, images }) =>
+  json
+    ? retryJsonParse(() => callGemini(prompt, { json, images }))
+    : retry(() => callGemini(prompt, { json, images }));
+
+// Keep track of API requests to enforce rate limiting
+let lastRequestTime = 0;
+const MAX_REQUESTS_PER_MINUTE = 10; // Configurable RPM limit
+const MINUTE_MS = 60 * 1000; // Milliseconds in a minute
+
+export async function callGemini(prompt, { json, images }) {
+  // Rate limiting logic
+  const now = Date.now();
+  const timeSinceLastRequest = now - lastRequestTime;
+  const minTimeBetweenRequests = MINUTE_MS / MAX_REQUESTS_PER_MINUTE;
+
+  // If we need to wait to maintain rate limit
+  if (timeSinceLastRequest < minTimeBetweenRequests) {
+    const waitTime = minTimeBetweenRequests - timeSinceLastRequest;
+    console.log(
+      `Rate limiting: Waiting ${Math.round(waitTime)}ms to maintain ${MAX_REQUESTS_PER_MINUTE} RPM`,
+    );
+    await new Promise((resolve) => setTimeout(resolve, waitTime));
+  }
+
+  // Update last request time
+  lastRequestTime = Date.now();
+
+  const genAI = new GoogleGenerativeAI(
+    "AIzaSyAnC3ptwWNPzlpnzATVsKNC-sFpo0FMtSk",
+  );
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash",
+  });
+
+  const generationConfig = json
+    ? {
+        maxOutputTokens: 80000,
+        responseMimeType: "application/json",
+      }
+    : {
+        maxOutputTokens: 80000,
+      };
+
+  try {
+    const parts = [{ text: prompt }];
+    if (images && images.length > 0) {
+      parts.push(...images);
+    }
+
+    const startTime = Date.now();
+    const result = await model.generateContent({
+      contents: [{ parts }],
+      generationConfig,
+    });
+    const timeTook = Date.now() - startTime;
+
+    const { promptTokenCount, candidatesTokenCount, totalTokenCount } =
+      result.response.usageMetadata;
+
+    const formatTokens = (n) => `${(n / 1000).toFixed(3)}K`;
+
+    console.log(
+      `Tokens: ${formatTokens(totalTokenCount)} (${formatTokens(promptTokenCount)} + ${formatTokens(candidatesTokenCount)}) | Time: ${timeTook}ms`,
+    );
+
+    return result.response.text();
+  } catch (error) {
+    console.error("Error calling Gemini API:", error);
+    throw error;
+  }
+}
+````
+
+## File: agents/extract-pdf.js
+````javascript
+// DO NOT REMOVE THIS THE COMMENT BELOW
+// pdftohtml -noframes -nodrm -s -fmt png input.pdf output.html
+//
+// Image extraction process:
+// 1. run img extraction command
+// 2. go through the directory searching for png files and create an object
+// 3. call gemini for a description of each image
+// 4. save the description to a json file with saving and progress tracking on a different file;
+//
+// The files will be saved in { [page number]: array of { alt, width, height, src }} with alt being the description from gemini
+
+import fs from "fs";
+import path from "path";
+import { execSync } from "child_process";
+import { JSDOM } from "jsdom";
+import { callModel } from "./agent-utils.js";
+
+async function extractAndDescribeImages(pdfFilePath) {
+  try {
+    // Extract folder name without extension
+    const folderName = pdfFilePath.replace(/\.[^/.]+$/, "");
+
+    // Create output directory if it doesn't exist
+    const outputDir = path.join(folderName, "images");
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
+
+    // Define paths for tracking files
+    const resultsFilePath = path.join(folderName, "image-alts.json");
+    const progressFilePath = path.join(folderName, "image-progress.json");
+
+    console.log(`Extracting images from ${pdfFilePath}...`);
+
+    // 1. Run image extraction command
+    const extractionCmd = `pdfimages -p -png ${pdfFilePath} ${path.join(outputDir, "img")}`;
+    execSync(extractionCmd);
+    console.log("Image extraction completed.");
+
+    // Load existing progress if it exists
+    let progress = {};
+    let results = {};
+    if (fs.existsSync(progressFilePath)) {
+      progress = JSON.parse(fs.readFileSync(progressFilePath, "utf8"));
+    }
+    if (fs.existsSync(resultsFilePath)) {
+      results = JSON.parse(fs.readFileSync(resultsFilePath, "utf8"));
+    }
+
+    // 2. Find all PNG files and create an object
+    const imageFiles = fs
+      .readdirSync(outputDir)
+      .filter((file) => file.endsWith(".png"))
+      .sort((a, b) => {
+        // Sort files numerically by extracting the numbers from the filename
+        const numA = parseInt(a.match(/(\d+)/g)[0]);
+        const numB = parseInt(b.match(/(\d+)/g)[0]);
+        return numA - numB;
+      });
+
+    console.log(`Found ${imageFiles.length} images.`);
+
+    // Extract page numbers from filenames - adjusting regex as needed for pdfimages output format
+    // The pattern may vary based on how pdfimages names files
+    const pageRegex = /img-(\d+)/;
+
+    // 3. Process each image with Gemini
+    for (const file of imageFiles) {
+      const filePath = path.join(outputDir, file);
+
+      // Skip if already processed
+      if (progress[file]) {
+        console.log(`Skipping ${file} (already processed)`);
+        continue;
+      }
+
+      // Get image dimensions
+      const dimensions = getImageDimensions(filePath);
+
+      // Extract page number using regex
+      const pageMatch = file.match(pageRegex);
+      const pageNumber = pageMatch ? pageMatch[1] : "unknown";
+
+      console.log(`Processing image ${file} from page ${pageNumber}...`);
+
+      // Get description from Gemini using callModel from agent-utils
+      const description = await getImageDescriptionWithCallModel(filePath);
+
+      // Create or update the page entry in results
+      if (!results[pageNumber]) {
+        results[pageNumber] = [];
+      }
+
+      // Add image info to results
+      results[pageNumber].push({
+        alt: description,
+        width: dimensions.width,
+        height: dimensions.height,
+        src: file,
+      });
+
+      // Update progress
+      progress[file] = true;
+
+      // Save progress after each image
+      fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
+      fs.writeFileSync(resultsFilePath, JSON.stringify(results, null, 2));
+
+      console.log(`Saved description for ${file}`);
+    }
+
+    console.log("Image extraction and description complete!");
+    return results;
+  } catch (error) {
+    console.error("Error in image extraction process:", error);
+    throw error;
+  }
+}
+
+// Helper function to get image dimensions
+function getImageDimensions(filePath) {
+  try {
+    // Use ImageMagick's identify command to get dimensions
+    const output = execSync(`identify -format "%w %h" "${filePath}"`)
+      .toString()
+      .trim();
+    const [width, height] = output.split(" ").map(Number);
+    return { width, height };
+  } catch (error) {
+    console.warn(`Could not get dimensions for ${filePath}: ${error.message}`);
+    return { width: 0, height: 0 };
+  }
+}
+
+// Function to get image description using callModel
+async function getImageDescriptionWithCallModel(imagePath) {
+  try {
+    // Read the image file
+    const imageData = fs.readFileSync(imagePath);
+
+    // Convert to base64
+    const base64Image = imageData.toString("base64");
+
+    // Prepare image for callModel
+    const imagePart = {
+      inlineData: {
+        data: base64Image,
+        mimeType: "image/png",
+      },
+    };
+
+    const prompt =
+      "Describe this image concisely and accurately with no more than 5 sentences. Focus on the main elements visible in the image.";
+
+    // Call the model with image
+    const description = await callModel(prompt, {
+      json: false,
+      images: [imagePart],
+    });
+
+    return description.trim();
+  } catch (error) {
+    console.error(`Error getting description: ${error.message}`);
+    return "Image description unavailable";
+  }
+}
+
+function cleanHtml(htmlString) {
+  // Extended HTML entities mapping
+  const entityMap = {
+    "&nbsp;": " ",
+    "&#160;": " ",
+    "&ensp;": " ",
+    "&emsp;": " ",
+    "&thinsp;": " ",
+    "&zwnj;": "",
+    "&zwj;": "",
+    "&lt;": "<",
+    "&gt;": ">",
+    "&amp;": "&",
+    "&quot;": '"',
+    "&apos;": "'",
+    "&mdash;": "—",
+    "&ndash;": "–",
+    "&hyphen;": "‐",
+    "&hellip;": "…",
+    "&iexcl;": "¡",
+    "&iquest;": "¿",
+    "&laquo;": "«",
+    "&raquo;": "»",
+    "&cent;": "¢",
+    "&pound;": "£",
+    "&euro;": "€",
+    "&yen;": "¥",
+    "&copy;": "©",
+    "&reg;": "®",
+    "&trade;": "™",
+    "&plusmn;": "±",
+    "&times;": "×",
+    "&divide;": "÷",
+    "&frasl;": "⁄",
+    "&eacute;": "é",
+    "&iacute;": "í",
+    "&oacute;": "ó",
+    "&uacute;": "ú",
+    "&ntilde;": "ñ",
+    "&deg;": "°",
+    "&sect;": "§",
+    "&para;": "¶",
+    "&micro;": "µ",
+  };
+
+  // Replace all HTML entities
+  for (const [entity, char] of Object.entries(entityMap)) {
+    htmlString = htmlString.replace(new RegExp(entity, "g"), char);
+  }
+
+  const dom = new JSDOM(htmlString);
+  const doc = dom.window.document;
+
+  let result = "";
+
+  function hasAllowedAncestor(node) {
+    const allowedTags = ["DIV", "SPAN", "P", "A"];
+    let current = node.parentNode;
+
+    while (
+      current &&
+      current.nodeName !== "BODY" &&
+      current.nodeName !== "HTML"
+    ) {
+      if (allowedTags.includes(current.nodeName.toUpperCase())) {
+        return true;
+      }
+      current = current.parentNode;
+    }
+    return false;
+  }
+
+  function processNode(node) {
+    // Keep Page comments
+    if (node.nodeType === 8) {
+      if (node.textContent.includes("Page")) {
+        result += `<!-- ${node.textContent} -->\n`;
+      }
+      return;
+    }
+
+    // For text nodes, check if they're within allowed tags
+    if (node.nodeType === 3 && hasAllowedAncestor(node)) {
+      const text = node.textContent.trim();
+      if (text) {
+        result += text + "\n";
+      }
+      return;
+    }
+
+    // Process all child nodes
+    Array.from(node.childNodes).forEach(processNode);
+  }
+
+  processNode(doc.documentElement);
+
+  // Clean up multiple newlines and trim
+  return result.replace(/\n\s*\n/g, "\n").trim();
+}
+
+// Function to read from a file
+function readFile(filePath) {
+  try {
+    const data = fs.readFileSync(filePath, "utf8");
+    return data;
+  } catch (err) {
+    console.error(`Error reading file: ${err}`);
+    return null;
+  }
+}
+
+// Function to write to a file
+function writeFile(filePath, data) {
+  try {
+    fs.writeFileSync(filePath, data, "utf8");
+  } catch (err) {
+    console.error(`Error writing to file: ${err}`);
+  }
+}
+
+const main = async () => {
+  const inputFilePath = process.argv[2];
+
+  // Check if input and output file paths are provided
+  if (!inputFilePath) {
+    console.log("Usage:   node extract.js course-id.pdf");
+    console.log(
+      "Output:  course-id/{page-n.html, textbook.html, textbook-clean.txt, image-alts.json}",
+    );
+    return;
+  }
+
+  // Extract folder name without extension
+  const folderName = inputFilePath.replace(/\.[^/.]+$/, "");
+
+  // Create folder if it doesn't exist
+  if (!fs.existsSync(folderName)) {
+    fs.mkdirSync(folderName);
+    console.log(`Created folder: ${folderName}`);
+  }
+
+  console.log("Starting PDF to HTML conversion...");
+  execSync(
+    `pdftohtml -noframes -nodrm -s -i ${inputFilePath} ${folderName}/textbook.html`,
+  );
+  console.log(`Created raw HTML convert: ${folderName}/textbook.html`);
+
+  execSync(
+    `pdftohtml -c -dataurls -zoom 2.25 ${inputFilePath} ${folderName}/page`,
+  );
+  console.log(`Created paged HTML convert: ${folderName}/page-{n}.html`);
+  execSync(`find ${folderName}/ -name "*.png" -type f -delete`);
+  console.log(`Deleted all PNG files in: ${folderName}/`);
+
+  // Read the HTML content from the input file
+  console.log("Processing HTML content...");
+  const originalHtml = readFile(`${folderName}/textbook.html`);
+
+  if (originalHtml) {
+    // Clean the HTML
+    console.log("Cleaning HTML content...");
+    const cleanedHtml = cleanHtml(originalHtml);
+
+    // Write the cleaned HTML to the specified output file
+    writeFile(`${folderName}/textbook-clean.txt`, cleanedHtml);
+    console.log(`Created clean HTML convert: ${folderName}/textbook-clean.txt`);
+  }
+
+  // Extract and describe images
+  console.log("Starting image extraction and description process...");
+  console.log("This may take some time depending on the number of images.");
+  try {
+    const imageResults = await extractAndDescribeImages(inputFilePath);
+    console.log(
+      `Successfully processed ${Object.keys(imageResults).length} pages containing images.`,
+    );
+    console.log(`Image descriptions saved to: ${folderName}/image-alts.json`);
+  } catch (error) {
+    console.error("Error during image extraction and description process:");
+    console.error(error.message);
+    console.log("PDF text extraction completed, but image processing failed.");
+  }
+
+  console.log("PDF extraction process completed!");
+};
+
+main();
+
+// function cleanHtml(htmlString) {
+//   // 1. Parse the HTML string into a DOM tree
+//   const dom = new JSDOM(htmlString);
+//   const doc = dom.window.document;
+
+//   // 2. Remove <style> tags (embedded styles)
+//   const styleTags = doc.querySelectorAll("style");
+//   styleTags.forEach((tag) => tag.parentNode.removeChild(tag));
+
+//   // 3. Remove title tags
+//   const titleTag = doc.querySelector("title");
+//   if (titleTag) {
+//     titleTag.parentNode.removeChild(titleTag);
+//   }
+
+//   // 4. Remove meta tags
+//   const metaTags = doc.querySelectorAll("meta");
+//   metaTags.forEach((tag) => tag.parentNode.removeChild(tag));
+
+//   // 5. Clean attributes of body
+//   if (doc.body) {
+//     doc.body.removeAttribute("bgcolor");
+//     doc.body.removeAttribute("vlink");
+//     doc.body.removeAttribute("link");
+//   }
+
+//   function stripTagsExceptImgAndPages(node) {
+//     // Check for comment nodes (nodeType === 8)
+//     if (node.nodeType === 8) {
+//       // Comment node
+//       // Keep comment if it contains the word 'Page'
+//       if (node.textContent.includes("Page")) {
+//         return `<!--${node.textContent}-->`;
+//       }
+//       return ""; // Remove other comments
+//     }
+
+//     if (node.nodeType === 3) {
+//       // Text node
+//       return node.textContent.replace(/\s+/g, " ").trim();
+//     }
+//     if (node.nodeName.toLowerCase() === "img") {
+//       return node.outerHTML;
+//     }
+//     let result = "";
+//     for (let child of node.childNodes) {
+//       result += stripTagsExceptImgAndPages(child);
+//     }
+//     return result;
+//   }
+
+//   // Apply the stripping function to body
+//   if (doc.body) {
+//     doc.body.innerHTML = stripTagsExceptImgAndPages(doc.body);
+//   }
+
+//   // 8. Serialize the cleaned DOM back into an HTML string
+//   return dom.serialize();
+
+// function cleanHtml(htmlString) {
+//   const dom = new JSDOM(htmlString);
+//   const doc = dom.window.document;
+
+//   // Remove unwanted elements
+//   const unwantedTags = ["style", "meta", "title"];
+//   unwantedTags.forEach((tag) => {
+//     const elements = doc.querySelectorAll(tag);
+//     elements.forEach((el) => el.remove());
+//   });
+
+//   // Clean body attributes
+//   if (doc.body) {
+//     doc.body.removeAttribute("bgcolor");
+//     doc.body.removeAttribute("vlink");
+//     doc.body.removeAttribute("link");
+//   }
+
+//   // Process all elements
+//   function processNode(node) {
+//     if (node.nodeType === 8) {
+//       // Comment node
+//       if (!node.textContent.includes("Page")) {
+//         node.remove();
+//       }
+//       return;
+//     }
+
+//     // Skip if it's text node or img
+//     if (node.nodeType === 3 || node.nodeName.toLowerCase() === "img") {
+//       return;
+//     }
+
+//     // Process children
+//     Array.from(node.childNodes).forEach((child) => {
+//       processNode(child);
+//     });
+
+//     // If not a div, p, or img, replace with its contents
+//     if (
+//       !["div", "p", "img", "body", "html"].includes(node.nodeName.toLowerCase())
+//     ) {
+//       while (node.firstChild) {
+//         node.parentNode.insertBefore(node.firstChild, node);
+//       }
+//       node.remove();
+//     }
+//   }
+
+//   processNode(doc.documentElement);
+
+//   return dom.serialize();
+````
+
+## File: agents/gen-outline.js
+````javascript
+import fs from "fs";
+import { fileURLToPath } from "url";
+import { callModel } from "./agent-utils.js";
+
+function fixDuplicateFilenames(obj) {
+  const fileNameCounts = new Map();
+
+  function processObject(item) {
+    if (Array.isArray(item)) {
+      return item.map((element) => processObject(element));
+    }
+
+    if (typeof item === "object" && item !== null) {
+      const newObj = {};
+
+      for (let key in item) {
+        if (item.hasOwnProperty(key)) {
+          if (key === "filename") {
+            const originalName = item[key];
+            const count = fileNameCounts.get(originalName) || 0;
+            fileNameCounts.set(originalName, count + 1);
+
+            if (count > 0) {
+              console.log(`Found duplicate: ${originalName}`);
+              const nameParts = originalName.split(".");
+              if (nameParts.length > 1) {
+                const ext = nameParts.pop();
+                newObj[key] = `${nameParts.join(".")} (${count}).${ext}`;
+              } else {
+                newObj[key] = `${originalName} (${count})`;
+              }
+            } else {
+              newObj[key] = originalName;
+            }
+          } else {
+            newObj[key] = processObject(item[key]);
+          }
+        }
+      }
+      return newObj;
+    }
+
+    return item;
+  }
+
+  const result = processObject(obj);
+  return result;
+}
+
+const outlinePrompt = `
+You are an expert course outline architect converting textbook content into structured learning paths for PowerPoint presentations, where each Chapter matches with a chapter based on the textbook outline and content and where each Topic must yield 5-10 slides. Break content into large, cohesive segments within textbook-defined chapters, define scope, estimate density, and create clear reference IDs.
+
+Create a "for slides creation" course outline from the textbook content that will be given at the end of this prompt following:
+
+1. OUTPUT STRUCTURE
+interface Chapter { title, filename, pageStart, pageEnd, topics }
+interface Topic { title, filename, paragraphs, pageStart, pageEnd }
+- Output array of Chapter objects
+- topics is an array of Topic objects (no nesting beyond this)
+
+2. STRUCTURAL RULES
+- Chapter objects should match textbook outline chapter structure while Topic objects are decided by their content-richness to fulfill the 5-10 slide requirement. Therefore the Chapters highly depend on the textbook while the Topic objects are dependent on your segmentation.
+- Short titles from content but the words should be meaningful and not abbrevations
+- Use <!-- Page n --> for page ranges only
+- Within each Chapter, each Topic MUST span 5-12 paragraphs (or 3-5 pages) for 5-10 slides; aggressively merge all related content to meet this
+- No standalone small Topics allowed; combine even loosely related material within chapter bounds
+- Exclude questions, exercises, summaries (including chapter-end), glossaries, references, optional/supplementary content
+- Estimate paragraphs per topic (tables/lists as paragraph equivalents)
+
+3. FILENAME RULES
+- Kebab-case, max 30 chars, unique
+- Use abbreviations: intro, mgmt, sys, db, prog, dev, impl, arch, app, struct, algo, config, anal, fund, prin, tech ...etc
+- Remove common words: the, and, or, of, to, for, in, on, at
+- Max 3-4 key terms
+
+4. OUTPUT FORMAT
+- Valid JSON
+- Flat structure (Chapter → topics only)
+- All Topics with pageStart/pageEnd
+
+Respond with raw JSON only
+TEXT CONTENT:
+
+  `;
+
+export const main = async () => {
+  // Run as CLI if called directly
+  if (process.argv[1] === fileURLToPath(import.meta.url)) {
+    const folderPath = process.argv[2];
+
+    if (!folderPath) {
+      console.log("Usage:   node gen-outline.js course-id ");
+      console.log("Output:  course-id/outline.json");
+
+      console.log("course-id is both the id and folder path from extract.js");
+      return;
+    }
+
+    const text = fs.readFileSync(`${folderPath}/textbook-clean.txt`, "utf8");
+    console.log("Input file read successfully");
+    console.log("Model creating outline...");
+
+    const userPrompt = `${outlinePrompt} ${text}`;
+    const rawOutline = await callModel(userPrompt, { json: true });
+    const outline = fixDuplicateFilenames(rawOutline);
+
+    fs.writeFileSync(
+      `${folderPath}/outline.json`,
+      JSON.stringify(outline, null, 2),
+    );
+
+    const totalTopics = outline.reduce(
+      (sum, chapter) => sum + (chapter.topics ? chapter.topics.length : 0),
+      0,
+    );
+    console.log(
+      `Total of ${totalTopics} written to ${folderPath}/outline.json`,
+    );
+  }
+};
+
+main();
+````
+
+## File: agents/gen-quiz.js
+````javascript
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { callModel, extractContent } from "./agent-utils.js";
+
+const htmlRules = `
+CONTENT FORMATTING RULES:
+
+Heading Structure:
+<h1> - Main topic title only
+<h2> - Major section divisions
+<h3> - Subsection headings
+Maintain strict hierarchy; no skipping levels
+
+Content Containers:
+<p> - Standard paragraphs
+<div> and <span> with classes:
+- class="definition" - Formal term definitions
+- class="example" - Illustrative examples
+- class="note" - Tips, important points, warnings
+
+Mathematical Content:
+<span class="math-inline"> - For inline mathematics
+<div class="math-display"> - For displayed equations
+[Use combination of LaTeX and unicode; ensure proper delimiters]
+
+Code Sections:
+<pre><code class="language-[name]"> - For code snippets
+[Always specify language; ensure proper formatting]
+
+List Structures:
+<ul> - Unordered lists (concepts, points)
+<ol> - Ordered lists (steps, procedures)
+<li> - List items
+[Maintain proper nesting for complex multi-level lists; use appropriate type]
+
+Text Emphasis:
+<strong> - Critical emphasis
+<em> - Secondary emphasis
+<u> - Underlining
+[Use sparingly and meaningfully]
+
+Special Elements:
+<blockquote> - Significant quotes or key points
+<table>, <th>, <tr>, <td> - Tabular data
+<hr> - Major section breaks
+
+* Make sure to output valid parsable RAW JSON; DO NOT ADD new lines without closing double quotes first!
+
+Generate NUMBER_OF_QUESTIONS questions based on this content:
+
+TOPIC_CONTENT
+
+`;
+
+// Prompt for generating multiple-choice questions
+const multipleChoicePrompt = `
+You are an expert quiz generator for educational content. Create multiple-choice questions based on the provided topic content.
+Each question should:
+1. Be clear and concise
+2. Have exactly 4 options
+3. Have only one correct answer
+4. Include a brief explanation for the correct answer
+5. Be challenging but fair for students studying this material
+
+For each question, provide:
+- A clear question statement
+- 4 answer options
+- The correct answer (as the index of the correct option, starting from 0)
+- A brief explanation of why the correct answer is right
+
+Format your response as a JSON array of question objects with this structure:
+[
+  {
+    "metadata": {
+      "courseId": "COURSE_ID",
+      "topic": "TOPIC_FILENAME",
+      "difficulty": 3,
+      "questionType": "multiple-choice",
+      "src": "gen",
+      "confidence": 0.9,
+      "confidenceRemark": "Generated from textbook content",
+      "correctAnswer": 0
+    },
+    "hint": "<div class="hint">Brief hint to guide students</div>",
+    "solution": "<div class="solution">
+      <p>Explanation of why the first option is correct</p>
+      <ul>
+        <li>Key point 1</li>
+        <li>Key point 2</li>
+      </ul>
+    </div>",
+    "question": "<div class="question-text">Question text goes here?</div>",
+    "options": [
+      "<div class=\"option-content\">Correct option with potential <strong>formatting</strong> or <span class=\"math-inline\">formulas</span></div>",
+      "<div class=\"option-content\">Second option</div>",
+      "<div class=\"option-content\">Third option</div>",
+      "<div class=\"option-content\">Fourth option</div>"
+    ]
+  }
+]
+
+${htmlRules}`;
+
+// Prompt for generating true/false questions
+const trueFalsePrompt = `
+You are an expert quiz generator for educational content. Create true/false questions based on the provided topic content.
+Each question should:
+1. Be clear and concise
+2. Be definitively true or false based on the content
+3. Include a brief explanation for the correct answer
+4. Avoid ambiguous statements
+
+For each question, provide:
+- A clear statement that is either true or false
+- The correct answer (just "true" or "false")
+- A brief explanation of why the statement is true or false
+
+Format your response as a JSON array of question objects with this structure:
+[
+  {
+    "metadata": {
+      "courseId": "COURSE_ID",
+      "topic": "TOPIC_FILENAME",
+      "difficulty": 3,
+      "questionType": "true-false",
+      "src": "gen",
+      "confidence": 0.9,
+      "confidenceRemark": "Generated from textbook content",
+      "correctAnswer": "true"
+    },
+    "hint": "<div class="hint">Brief hint to guide students</div>",
+    "solution": "<div class="solution">
+      <p>Explanation of why the statement is true/false</p>
+      <ul>
+        <li>Supporting evidence 1</li>
+        <li>Supporting evidence 2</li>
+      </ul>
+    </div>",
+    "question": "<div class="question"> <div class="question-text">Statement that is true or false goes here.</div> </div>"
+  }
+]
+${htmlRules}
+
+  `;
+
+// Prompt for generating workout/open-ended questions
+const workoutPrompt = `
+You are an expert quiz generator for educational content. Create workout/open-ended questions based on the provided topic content.
+Each question should:
+1. Require deeper understanding and application of concepts
+2. Challenge students to demonstrate their knowledge
+3. Include a detailed solution that shows the steps to solve the problem
+4. Be appropriate for the difficulty level of the course
+5. Include both mathematical problems AND short-answer conceptual questions
+
+For each question, provide:
+- A clear problem statement that requires either:
+  a) Working out a mathematical/technical solution, OR
+  b) Writing a short answer explaining a concept, comparing ideas, or analyzing a situation
+- A detailed step-by-step solution or model answer
+- A brief hint to guide students without giving away the answer
+
+Format your response as a JSON array of question objects with this structure:
+[
+  {
+    "metadata": {
+      "courseId": "COURSE_ID",
+      "topic": "TOPIC_FILENAME",
+
+      "difficulty": 4,
+      "questionType": "workout",
+      "subType": "mathematical" | "conceptual",
+      "src": "gen",
+      "confidence": 0.85,
+      "confidenceRemark": "Generated from textbook content",
+      "correctAnswer": null
+    },
+    "hint": "<div class="hint">Brief hint to guide students</div>",
+    "solution": "<div class="solution">
+      <h3>Solution Approach</h3>
+      <ol>
+        <li>Step 1 explanation</li>
+        <li>Step 2 explanation</li>
+        <li>Final step and conclusion</li>
+      </ol>
+      <div class="note">Important observations or key takeaways</div>
+    </div>",
+    "question": "<div class="question">
+      <div class="question-text">
+        <p>Detailed problem statement goes here.</p>
+        <div class="example">Example or context if needed</div>
+        <div class="math-display">Mathematical expressions if needed</div>
+      </div>
+    </div>"
+  }
+]
+
+${htmlRules}
+`;
+
+// Function to determine question distribution based on topic context
+async function determineQuestionDistributionForTopic(topic, parentTitle) {
+  const distributionPrompt = `
+You are an expert educational content strategist. Based on the topic and its parent section, determine an appropriate distribution of question types for a comprehensive quiz bank.
+Consider:
+1. The nature of the content (theoretical, practical, mathematical, etc.)
+2. The best way to thoroughly assess understanding of this specific topic
+3. The typical assessment patterns for this type of content
+4. The need for varied question types while maintaining quality
+5. The maximum limit of 50 total questions per topic
+
+Topic Title: ${topic.title}
+Parent Section: ${parentTitle}
+
+For theoretical topics, emphasize conceptual understanding through a balanced mix of multiple choice, true/false, and short-answer workout questions.
+For practical/applied topics, focus on multiple choice and workout questions that test both knowledge and application.
+For mathematical topics, include mathematical workout problems while maintaining sufficient multiple choice questions to test theoretical understanding.
+
+Respond with a JSON object containing:
+{
+  "distribution": {
+    "multiple-choice": number,
+    "true-false": number,
+    "workout": number     //  mix of mathematical and short-answer
+  },
+  "explanation": "Brief explanation of why this distribution is appropriate and how it ensures comprehensive coverage of the topic"
+}
+
+IMPORTANT: The total number of questions MUST NOT exceed 50 per topic. Aim for a total between 20-50 questions depending on the topic's complexity and scope.
+`;
+
+  try {
+    const result = await callModel(distributionPrompt, { json: true });
+    console.log(
+      `Distribution rationale for ${topic.title}: ${result.explanation}`,
+    );
+    return result.distribution;
+  } catch (error) {
+    console.error(`Error determining question distribution: ${error.message}`);
+    // Fallback to default distribution if model call fails
+    return {
+      "multiple-choice": 20,
+      "true-false": 10,
+      workout: 5,
+    };
+  }
+}
+
+// Function to generate questions for a specific topic
+async function generateQuestionsForTopic(
+  courseId,
+  topic,
+  textContent,
+  questionCounts,
+) {
+  console.log(`Generating questions for topic: ${topic.title}`);
+  // Extract the actual courseId from the path (last part)
+  const actualCourseId = courseId.split("/").pop();
+  const questions = [];
+  // Generate multiple-choice questions
+  if (questionCounts["multiple-choice"] > 0) {
+    const mcPrompt = multipleChoicePrompt
+      .replace("COURSE_ID", actualCourseId)
+      .replace("TOPIC_FILENAME", topic.filename)
+      .replace("NUMBER_OF_QUESTIONS", questionCounts["multiple-choice"])
+      .replace("TOPIC_CONTENT", textContent);
+
+    try {
+      const mcQuestions = await callModel(mcPrompt, { json: true });
+      questions.push(...mcQuestions);
+      console.log(`Generated ${mcQuestions.length} multiple-choice questions`);
+    } catch (error) {
+      console.error(
+        `Error generating multiple-choice questions: ${error.message}`,
+      );
+    }
+  }
+  // Generate true/false questions
+  if (questionCounts["true-false"] > 0) {
+    const tfPrompt = trueFalsePrompt
+      .replace("COURSE_ID", actualCourseId)
+      .replace("NUMBER_OF_QUESTIONS", questionCounts["true-false"])
+      .replace("TOPIC_FILENAME", topic.filename)
+      .replace("TOPIC_CONTENT", textContent);
+
+    try {
+      const tfQuestions = await callModel(tfPrompt, { json: true });
+      questions.push(...tfQuestions);
+      console.log(`Generated ${tfQuestions.length} true/false questions`);
+    } catch (error) {
+      console.error(`Error generating true/false questions: ${error.message}`);
+    }
+  }
+  // Generate workout questions
+  if (questionCounts["workout"] > 0) {
+    const woPrompt = workoutPrompt
+      .replace("COURSE_ID", actualCourseId)
+      .replace("TOPIC_FILENAME", topic.filename)
+      .replace("NUMBER_OF_QUESTIONS", questionCounts["workout"])
+      .replace("TOPIC_CONTENT", textContent);
+
+    try {
+      const woQuestions = await callModel(woPrompt, { json: true });
+      questions.push(...woQuestions);
+      console.log(`Generated ${woQuestions.length} workout questions`);
+    } catch (error) {
+      console.error(`Error generating workout questions: ${error.message}`);
+    }
+  }
+  return questions;
+}
+
+// Function to extract topic content from textbook
+// function extractTopicContent(textbookContent, topic) {
+//   // Find content between page markers
+//   const pageStartMarker = `<!-- Page ${topic.pageStart} -->`;
+//   const pageEndMarker = `<!-- Page ${topic.pageEnd + 1} -->`;
+//
+let startIndex = textbookContent.indexOf(pageStartMarker);
+//   let endIndex = textbookContent.indexOf(pageEndMarker);
+//   // If end marker not found, go to the end of the content
+//   if (endIndex === -1) {
+//     endIndex = textbookContent.length;
+//   }
+//
+// Extract content between markers
+//   if (startIndex !== -1) {
+//     startIndex += pageStartMarker.length;
+//     return textbookContent.substring(startIndex, endIndex).trim();
+//   }
+//   // Fallback: try to find content based on paragraph count
+//   console.warn(`Page markers not found for topic ${topic.title}, using paragraph estimation`);
+//   // Simple paragraph splitting - this is a fallback method
+//   const paragraphs = textbookContent.split(/\n\s*\n/);
+//   const estimatedStart = Math.max(0, topic.pageStart * 3); // Rough estimate: 3 paragraphs per page
+//   const estimatedEnd = Math.min(paragraphs.length, topic.pageEnd * 3);
+//   return paragraphs.slice(estimatedStart, estimatedEnd).join('\n\n');
+// }
+
+// Main function to generate quiz for a course
+export async function generateQuiz(
+  courseId,
+  selectedTopics = [],
+  questionTypes = ["multiple-choice", "true-false", "workout"],
+) {
+  console.log(`Generating quiz for course: ${courseId}`);
+  console.log(
+    `Selected topics: ${selectedTopics.length > 0 ? selectedTopics.join(", ") : "All topics"}`,
+  );
+  console.log(`Question types: ${questionTypes.join(", ")}`);
+  // Create quizzes directory if it doesn't exist
+  const quizzesDir = path.join(courseId, "quizzes");
+  if (!fs.existsSync(quizzesDir)) {
+    fs.mkdirSync(quizzesDir, { recursive: true });
+  }
+  // Create quiz progress tracking file
+  const progressFilePath = path.join(quizzesDir, "quiz-progress.json");
+  let progress = {};
+  if (fs.existsSync(progressFilePath)) {
+    progress = JSON.parse(fs.readFileSync(progressFilePath, "utf8"));
+  }
+  // Read course outline
+  const outlinePath = path.join(courseId, "outline.json");
+  if (!fs.existsSync(outlinePath)) {
+    throw new Error(`Outline file not found for course: ${courseId}`);
+  }
+  const outline = JSON.parse(fs.readFileSync(outlinePath, "utf8"));
+
+  // Read textbook content
+  const textbookPath = path.join(courseId, "textbook-clean.txt");
+  if (!fs.existsSync(textbookPath)) {
+    throw new Error(`Textbook content not found for course: ${courseId}`);
+  }
+  const textbookContent = fs.readFileSync(textbookPath, "utf8");
+  // Collect all topics and their parent sections from the outline
+  const allTopics = [];
+  outline.forEach((section) => {
+    if (section.topics && Array.isArray(section.topics)) {
+      section.topics.forEach((topic) => {
+        allTopics.push({
+          ...topic,
+          parentTitle: section.title,
+        });
+      });
+    }
+  });
+  // Filter topics if specific ones are selected
+  const topicsToProcess =
+    selectedTopics.length > 0
+      ? allTopics.filter((topic) => selectedTopics.includes(topic.filename))
+      : allTopics;
+  if (topicsToProcess.length === 0) {
+    throw new Error("No topics found to process");
+  }
+  console.log(`Processing ${topicsToProcess.length} topics`);
+
+  // Filter question types based on user selection
+  const filteredTypes = questionTypes.filter((type) =>
+    ["multiple-choice", "true-false", "workout"].includes(type),
+  );
+
+  if (filteredTypes.length === 0) {
+    throw new Error("No valid question types selected");
+  }
+
+  // Generate questions for each topic
+  const allQuestions = [];
+  for (const topic of topicsToProcess) {
+    // Skip if already processed (based on progress tracking)
+    if (progress[topic.filename] && progress[topic.filename].completed) {
+      console.log(`Skipping topic ${topic.filename} (already processed)`);
+      // Load existing questions
+      const topicQuestionsPath = path.join(
+        quizzesDir,
+        `${topic.filename}.json`,
+      );
+      if (fs.existsSync(topicQuestionsPath)) {
+        const topicQuestions = JSON.parse(
+          fs.readFileSync(topicQuestionsPath, "utf8"),
+        );
+        allQuestions.push(...topicQuestions);
+      }
+
+      continue;
+    }
+    // Extract content for this topic
+    const topicContent = extractContent(
+      textbookContent,
+      topic.pageStart,
+      topic.pageEnd,
+    );
+
+    if (!topicContent) {
+      console.warn(
+        `Insufficient content for topic ${topic.filename}, skipping`,
+      );
+      continue;
+    }
+    // Determine question distribution based on topic context
+    const questionDistribution = await determineQuestionDistributionForTopic(
+      topic,
+      topic.parentTitle,
+    );
+    console.log(
+      `Question distribution for ${topic.title}:`,
+      questionDistribution,
+    );
+    // Update progress
+    progress[topic.filename] = {
+      started: true,
+      completed: false,
+      timestamp: new Date().toISOString(),
+    };
+    fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
+
+    // Generate questions
+    const topicQuestions = await generateQuestionsForTopic(
+      courseId,
+      topic,
+      topicContent,
+      questionDistribution,
+    );
+    // Save topic questions to file
+    const topicQuestionsPath = path.join(quizzesDir, `${topic.filename}.json`);
+    fs.writeFileSync(
+      topicQuestionsPath,
+      JSON.stringify(topicQuestions, null, 2),
+    );
+    // Add to all questions
+    allQuestions.push(...topicQuestions);
+    // Update progress
+    progress[topic.filename].completed = true;
+    progress[topic.filename].questionCount = topicQuestions.length;
+    fs.writeFileSync(progressFilePath, JSON.stringify(progress, null, 2));
+
+    console.log(
+      `Completed topic ${topic.filename} with ${topicQuestions.length} questions`,
+    );
+  }
+
+  // Create the final quiz object
+  const quiz = {
+    courseId: courseId,
+    topics: topicsToProcess.map((t) => t.filename),
+    qtypes: filteredTypes,
+    questions: allQuestions,
+  };
+  // Save the complete quiz
+  const quizPath = path.join(quizzesDir, "complete-quiz.json");
+  fs.writeFileSync(quizPath, JSON.stringify(quiz, null, 2));
+
+  console.log(
+    `Quiz generation complete. Total questions: ${allQuestions.length}`,
+  );
+  console.log(`Quiz saved to: ${quizPath}`);
+  return quiz;
+}
+
+// Run as CLI if called directly
+export const main = async () => {
+  if (process.argv[1] === fileURLToPath(import.meta.url)) {
+    const courseId = process.argv[2];
+    const topicsArg = process.argv[3] || "";
+    const typesArg = process.argv[4] || "multiple-choice,true-false,workout";
+    if (!courseId) {
+      console.log(
+        "Usage: node gen-quiz.js course-id [topics] [question-types]",
+      );
+      console.log("  course-id: Path to the course folder");
+      console.log(
+        "  topics: Comma-separated list of topic filenames (optional, default: all topics)",
+      );
+      console.log(
+        "  question-types: Comma-separated list of question types (optional, default: all types)",
+      );
+      console.log(
+        "\nExample: node gen-quiz.js ./modules/cs/introAI intro-ai,neural-networks multiple-choice,workout",
+      );
+      return;
+    }
+    const selectedTopics = topicsArg ? topicsArg.split(",") : [];
+    const questionTypes = typesArg
+      ? typesArg.split(",")
+      : ["multiple-choice", "true-false", "workout"];
+
+    try {
+      await generateQuiz(courseId, selectedTopics, questionTypes);
+    } catch (error) {
+      console.error("Error generating quiz:", error);
+      process.exit(1);
+    }
+  }
+};
+
+main();
+````
+
+## File: agents/gen-slides.js
+````javascript
+/*
+ *
+ *
+ */
+
+import fs from "fs";
+import { fileURLToPath } from "url";
+import youtubesearchapi from "youtube-search-api";
+import { callModel, retry, extractContent } from "./agent-utils.js";
+
+const flattenTopics = (outline) => {
+  let result = [];
+
+  for (const section of outline) {
+    result = [
+      ...result,
+      ...(section.topics.map((topic) => ({
+        ...topic,
+        chapterTitle: section.title,
+      })) || []),
+    ];
+  }
+
+  return result;
+};
+
+const getVideos = (keyword) => {
+  return youtubesearchapi
+    .GetListByKeyword(keyword, false, 10, [{ type: "video" }])
+    .then((response) => {
+      const videos = response.items.map((item) => ({
+        videoId: item.id,
+        videoTitle: item.title,
+        channelTitle: item.channelTitle,
+        thumbnails: item.thumbnail.thumbnails.map(({ url }) => url),
+        duration: item.length.simpleText,
+      }));
+      return videos;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};
+
+async function appendToProgressFile(folderPath, newProgress) {
+  let existingData = [];
+  try {
+    const fileContent = await fs.promises.readFile(
+      `${folderPath}/topic-progress.json`,
+      "utf8",
+    );
+    existingData = JSON.parse(fileContent);
+    if (!Array.isArray(existingData)) {
+      existingData = [existingData]; // Handle the case where progress.json contains a single object instead of an array of object
+    }
+  } catch (error) {
+    // If the file doesn't exist or is empty or invalid, start with an empty array
+    if (error.code !== "ENOENT") {
+      console.error(
+        "Error reading or parsing progress.json, starting with empty array:",
+        error,
+      );
+    }
+    existingData = [];
+  }
+
+  console.log("New topic added to topic-progress.json", newProgress);
+  const combinedData = [...existingData, newProgress];
+
+  try {
+    await fs.promises.writeFile(
+      `${folderPath}/topic-progress.json`,
+      JSON.stringify(combinedData, null, 2),
+    );
+  } catch (error) {
+    console.error("Error writing to topic-progress.json:", error);
+    throw error; // Re-throw so the main function knows about the failure
+  }
+}
+async function getLastIndexFromProgressFile(folderPath) {
+  try {
+    const fileContent = await fs.promises.readFile(
+      `${folderPath}/topic-progress.json`,
+      "utf8",
+    );
+    let existingData = JSON.parse(fileContent);
+
+    if (!Array.isArray(existingData)) {
+      existingData = [existingData]; // Handle the case where progress.json contains a single object instead of an array of objects
+    }
+
+    if (existingData.length > 0) {
+      // Remove duplicates based on filename
+      const uniqueData = [];
+      const filenames = new Set();
+      for (const item of existingData) {
+        if (item.filename && !filenames.has(item.filename)) {
+          uniqueData.push(item);
+          filenames.add(item.filename);
+        }
+      }
+      existingData = uniqueData;
+
+      console.log(`Continuing from index ${existingData.length}...`);
+      return existingData.length;
+    } else {
+      console.log("Starting from scratch [0]...");
+      return 0;
+    }
+    // eslint-disable-next-line
+  } catch (error) {
+    console.log("Starting from scratch [1]...");
+    return 0;
+  }
+}
+
+async function readImageAltsJson(folderPath) {
+  try {
+    const content = await fs.promises.readFile(
+      `${folderPath}/image-alts.json`,
+      "utf8",
+    );
+    return JSON.parse(content);
+  } catch (error) {
+    console.error("Error reading image-alts.json:", error);
+    return {};
+  }
+}
+
+function mergeImagesWithPageNumbers(imageAltsData, pageStart, pageEnd) {
+  const allImages = [];
+
+  // Process only pages within the specified range
+  for (const pageNum in imageAltsData) {
+    const pageNumber = parseInt(pageNum, 10);
+
+    // Skip pages outside our range
+    if (pageNumber < pageStart || pageNumber > pageEnd) {
+      continue;
+    }
+
+    // Get all images for this page
+    const imagesOnPage = imageAltsData[pageNum] || [];
+
+    // Add page number to each image and add to our result array
+    imagesOnPage.forEach((image) => {
+      allImages.push({
+        src: image.src,
+        alt: image.alt,
+        page: pageNumber,
+      });
+    });
+  }
+
+  return allImages;
+}
+
+async function processImagesForLLM(folderPath, imageInfo) {
+  const processedImageParts = [];
+
+  for (const image of imageInfo) {
+    try {
+      // Extract the filename from the src path
+      const filename = image.src.split("/").pop();
+      const imagePath = `${folderPath}/images/${filename}`;
+
+      // Check if the file exists
+      try {
+        await fs.promises.access(imagePath, fs.constants.R_OK);
+        // eslint-disable-next-line
+      } catch (error) {
+        console.warn(`Image file not accessible: ${imagePath}`);
+        continue;
+      }
+
+      // Read the file
+      const imageBuffer = await fs.promises.readFile(imagePath);
+
+      // Create the part object in the format expected by callModel
+      processedImageParts.push({
+        inlineData: {
+          data: imageBuffer.toString("base64"),
+          mimeType: getImageMimeType(filename),
+        },
+      });
+
+      console.log(`Loaded image: ${filename} for the LLM`);
+    } catch (error) {
+      console.error(`Error processing image ${image.src}:`, error);
+    }
+  }
+
+  return processedImageParts;
+}
+
+// Helper function to determine MIME type
+function getImageMimeType(filename) {
+  const extension = filename.split(".").pop().toLowerCase();
+  switch (extension) {
+    case "png":
+      return "image/png";
+    case "jpg":
+    case "jpeg":
+      return "image/jpeg";
+    case "gif":
+      return "image/gif";
+    case "svg":
+      return "image/svg+xml";
+    default:
+      return "application/octet-stream";
+  }
+}
+
+const main = async () => {
+  if (process.argv[1] === fileURLToPath(import.meta.url)) {
+    const folderPath = process.argv[2];
+    let count = process.argv[3] || 0;
+
+    if (!folderPath) {
+      console.log("Usage:   node gen-slides.js course-id (count)");
+      console.log("Output:  course-id/topic-progress.json");
+      console.log("         course-id/topics/{topic-filename}.html");
+      return;
+    }
+
+    console.log("Topic script as started...");
+    const imageAltsData = await readImageAltsJson(folderPath);
+
+    try {
+      await fs.promises.mkdir(`${folderPath}/topics`, { recursive: true });
+    } catch (error) {
+      console.error("Error creating topics folder:", error);
+      throw error;
+    }
+
+    const flatOutline = flattenTopics(
+      JSON.parse(await fs.promises.readFile(`${folderPath}/outline.json`)),
+    );
+    const textbookContent = await fs.promises.readFile(
+      `${folderPath}/textbook-clean.txt`,
+      "utf8",
+    );
+
+    console.log(`Total flattened topics: ${flatOutline.length}`);
+
+    count = count || flatOutline.length;
+    const startingIndex = await getLastIndexFromProgressFile(folderPath);
+    for (let i = startingIndex; i < count; i++) {
+      console.log("------------------");
+      const imgInfo = mergeImagesWithPageNumbers(
+        imageAltsData,
+        flatOutline[i].pageStart,
+        flatOutline[i].pageEnd,
+      );
+      const llmImages = processImagesForLLM(folderPath, imgInfo);
+      const content = extractContent(
+        textbookContent,
+        flatOutline[i].pageStart,
+        flatOutline[i].pageEnd,
+      );
+      const prompt = `
+${preprompt}
+TOPIC INFO => TOPIC TITLE: ${flatOutline[i].title}; PARENT TOPIC: ${flatOutline[i].chapterTitle}
+AVAILABLE IMAGES:
+${imgInfo.length == 0 ? "No images for this slide" : JSON.stringify(imgInfo, null, 2)}
+
+RAW TEXTBOOK TOPIC TEXT EXTRACT: ${content}
+`;
+
+      const topicObject = await callModel(prompt, {
+        json: true,
+        images: llmImages.length > 0 ? llmImages : undefined,
+      });
+      topicObject.videos = await retry(() =>
+        getVideos(topicObject.youtubeKeywords),
+      );
+
+      // Save topic with updated metadata
+      await appendToProgressFile(folderPath, flatOutline[i]);
+
+      await fs.promises.writeFile(
+        `${folderPath}/topics/${flatOutline[i].filename}.json`,
+        JSON.stringify(topicObject, null, 2),
+      );
+      console.log(
+        "Output written to topics/" + flatOutline[i].filename + ".json",
+      );
+    }
+  }
+};
+main();
+
+const preprompt = `
+  You are an expert slide content creator specializing in concise, presentation-ready academic material.
+
+  Your task:
+  1. Create a JSON structure with metadata and slides for the topic below.
+  2. Design slides that are visual, concise, and presentation-friendly.
+  3. Incorporate the images provided with this prompt in your slides.
+
+  OUTPUT FORMAT:
+  Respond with ONLY a valid JSON object containing:
+  {
+    "difficulty": number,        // 1-10 scale based on complexity
+    "duration": number,          // minutes to comprehend
+    "bloomsLevels": string[],    // from: [memorize, conceptual, steps, logic, analysis, create]
+    "flexibility": string[],     // one of: [must-read, essential, optional]
+    "confidence": number,        // 1-10 scale on completeness
+    "confidenceRemark": string,  // limitations explanation
+    "pageStart": number,         // from topic info
+    "pageEnd": number,           // from topic info
+    "funfacts": string[],        // 4 attention-grabbing, mind-blowing facts
+    "youtubeKeywords": string,   // search terms for related videos
+    "slides": [                  // array of slide objects
+      {
+        "slideTitle": string,    // concise slide title
+        "slideContent": string   // HTML content following structure rules
+      }
+    ]
+  }
+
+  HTML ELEMENTS FOR slideContent:
+  - <h2> for section headers
+  - <p> for concise text (2-3 sentences max)
+  - <ul>/<ol> with <li> for bullet points; do not use <li> when there is only one item
+  - <div class="definition"> for key terms
+  - <div class="note"> for important points
+  - <div class="example"> for examples
+  - <span class="math-inline"> for inline math
+  - <div class="math-display"> for equations
+  - <pre><code> for code snippets
+  - <strong> for critical emphasis
+  - <em> for secondary emphasis
+  - <u> for underlining
+  - <table>, <th>, <tr>, <td> for tabular data
+  - <hr> for major section breaks
+  - <br> for minimal line breaks
+  - <img src="..." alt="..." /> for images
+
+  IMAGE USAGE:
+  - The images shown to you are the same as those listed in AVAILABLE IMAGES
+  - Images are listed in order from first to last in AVAILABLE IMAGES section
+  - Reference images by their src value in the AVAILABLE IMAGES list
+  - Use appropriate images where they enhance understanding of the topic
+  - The inclusion of provided images is not mandatory, use your judgement.
+
+  KEY REQUIREMENTS:
+  1. FOCUS: Adhere strictly to the topic below.
+  2. VISUAL: Favor lists, tables, and images over paragraphs.
+  3. COMPLETENESS: Cover all essential aspects of the topic.
+  4. SHORT FIRST AND LAST SLIDES: Make the first and last slides shorter than the rest.
+  5. BALANCED LENGTH: Aim for a balanced distribution of slide lengths.
+  6. NO UNNECESSARY MENTIONS: No need to mention publishers or anything related
+`;
+````
+
+## File: agents/mini-outline.js
+````javascript
+import fs from "fs";
+import { fileURLToPath } from "url";
+import path from "path";
+import { callModel } from "./agent-utils.js";
+
+async function generateFileOutline(filename) {
+  if (!filename) {
+    console.error("Error: Please provide a filename as an argument");
+    console.log("Usage: node generate-file-outline.js <filename>");
+    return;
+  }
+
+  try {
+    const fileContent = fs.readFileSync(filename, "utf8");
+    console.log(`File ${filename} read successfully`);
+
+    const outlinePrompt = `
+You are creating a simplified course outline for PowerPoint presentations from textbook content. Each topic should contain enough material for 5-10 slides.
+
+Create a flat outline with the following structure:
+{ "chapter title": ["topic title 1", "topic title 2", ...] }
+
+Guidelines:
+- The chapter structure should match the one provided in the textbook outline
+- Each topic should cover 5-12 paragraphs or 3-5 pages
+- Combine related content to meet this density requirement
+- Use short but meaningful titles (no abbreviations)
+- Exclude questions, exercises, summaries, glossaries, and references
+- Topics should be cohesive units of related content
+
+Content to outline:
+${fileContent}
+
+Return only valid JSON with no explanation.`;
+
+    console.log("Generating outline...");
+    const outline = await callModel(outlinePrompt, { json: true });
+
+    const sourceDir = path.dirname(filename);
+    const outFilename = path.join(
+      sourceDir,
+      path.basename(filename, path.extname(filename)) + ".ot.json",
+    );
+    fs.writeFileSync(outFilename, JSON.stringify(outline, null, 2));
+
+    console.log(`Outline successfully written to ${outFilename}`);
+    return outline;
+  } catch (error) {
+    console.error(`Error processing file: ${error.message}`);
+    throw error;
+  }
+}
+
+const main = async () => {
+  if (process.argv[1] != fileURLToPath(import.meta.url)) {
+    console.log("usage problem");
+    return;
+  }
+
+  const filename = process.argv[2];
+  generateFileOutline(filename).catch(console.error);
+};
+main();
+````
+
+## File: agents/oldstuff.js
+````javascript
+const preprompt = `You are an expert academic content structuring agent specialized in creating focused, well-structured HTML documents from textbook content designed for presentation purposes. You will receive:
+  1. A specific topic name and its parent topics in the curriculum hierarchy.  This is the *ONLY* topic you should cover.
+  2. A partitioned content section from a textbook *potentially containing content before OR after the target topic*.
+
+  PRIMARY OBJECTIVE: Create a semantically structured HTML document focusing *EXCLUSIVELY* on the specified topic. ABSOLUTELY DO NOT INCLUDE CONTENT FROM ANY OTHER TOPIC, even if that content is present in the provided text. The output should be concise and suitable for a presentation, not an extensive textbook chapter. Ensure that your final output includes both the metadata script tag and the complete course content HTML as defined below.
+
+  METADATA OUTPUT STRUCTURE:
+  Generate at the beginning of the document:
+  <script id="course-metadata" type="application/ld+json">
+  {
+      "difficulty": number,        // 1-10 scale, based on conceptual complexity and prerequisite knowledge
+      "duration": number,         // estimated minutes for comprehension
+      "bloomsLevels": string[],   // array of: [memorize, conceptual, steps, logic, analysis, create] based on best ways to learn this topic
+      "flexibility": string[],      // one of: [must-read, essential, optional] about the flexibility of this topic being read lightly
+      "confidence": number,        // 1-10 scale, indicating your confidence in content completeness and your output assessment
+      "confidenceRemark": string,  // detailed explanation of any limitations or concerns
+      "pageStart": number, // from the info given the at the end of prompt with the topic name
+      "pageEnd": number, // from the info given at the end of the prompt with the topic name
+      "funfacts": string[],  // an array of 4 one-sentence fun facts about the topic that are MIND-BLOWING JAW-DROPPING INTERESTING from your general knowledge; YOU MUST MAKE SURE they are HOOKING, ATTENTION-GRABING, SHARE WORTHY, EXCITING and INTERESTING facts even if the facts are remotely related to the topic
+      "youtubeKeywords": string // keyword to search for youtube videos for this topic
+  }
+  </script>
+
+  Your output must consist of two parts:
+  1. A metadata <script> tag as specified.
+  2. A complete, well-structured HTML section containing the main course content.
+
+  Do not provide only the metadata. Your response must include both the metadata block and the full course content in one complete HTML document.
+
+  This will look like:
+  <script id="course-metadata" type="application/ld+json">
+  { ...metadata JSON... }
+  </script>
+  <!-- Begin Course Content -->
+  <h1>Course Title</h1>
+  <div>...rest of the HTML content...</div>
+
+  ALLOWED HTML ELEMENTS AND USAGE:
+
+  Heading Structure:
+  <h1> - Main topic title only
+  <h2> - Major section divisions
+  <h3> - Subsection headings
+  [Maintain strict hierarchy; no skipping levels]
+
+  Content Containers:
+  <p> - Standard paragraphs
+  <div> and <span> with classes:
+  - class="definition" - Formal term definitions
+  - class="example" - Illustrative examples
+  - class="note" - Tips, important points, warnings
+
+  Mathematical Content:
+  <span class="math-inline"> - For inline mathematics
+  <div class="math-display"> - For displayed equations
+  [Use combination of LaTeX and unicode; ensure proper delimiters]
+
+  Code Sections:
+  <pre><code class="language-[name]"> - For code snippets
+  [Always specify language; ensure proper formatting]
+
+  List Structures:
+  <ul> - Unordered lists (concepts, points)
+  <ol> - Ordered lists (steps, procedures)
+  <li> - List items
+  [Maintain proper nesting for complex multi-level lists; use appropriate type]
+
+  Text Emphasis:
+  <strong> - Critical emphasis
+  <em> - Secondary emphasis
+  <u> - Underlining
+  [Use sparingly and meaningfully]
+
+  Special Elements:
+  <blockquote> - Significant quotes or key points
+  <table>, <th>, <tr>, <td> - Tabular data
+  <hr> - Major section breaks
+  <br> - Minimal use, only when necessary
+
+  CONTENT STRUCTURING RULES:
+
+  1. Topic Focus:
+  - *STRICTLY* adhere to the specified topic and its subtopics.
+  - *DO NOT INCLUDE INFORMATION FROM OTHER TOPICS, EVEN IF THE PROVIDED CONTENT TOUCHES ON THEM.* Only include content directly relevant to explaning the topic given.
+  - Maintain academic tone and precision.
+
+  2. Content Organization:
+  - Present concepts in logical progression *WITHIN THE SPECIFIED TOPIC.*
+  - Build from fundamental to advanced ideas *WITHIN THE SPECIFIED TOPIC.*
+  - Include appropriate explanations and *relevant* examples *FOR THE SPECIFIED TOPIC.*
+
+  3. Mathematical Content:
+  - Use proper LaTeX notation for complex equations *THAT ARE PART OF THE SPECIFIED TOPIC.*
+  - Ensure equations are properly explained *WITHIN THE SPECIFIED TOPIC.*
+  - Maintain consistent mathematical notation *WITHIN THE SPECIFIED TOPIC.*
+
+  5. Code Examples:
+  - Include explanatory comments *THAT ARE PART OF THE SPECIFIED TOPIC.*
+  - Ensure code relevance to the topic.
+
+  5. Completeness Checks:
+  - Verify all necessary concepts are covered *WITHIN THE SPECIFIED TOPIC.*
+  - Ensure logical flow between sections *WITHIN THE SPECIFIED TOPIC.*
+  - Check for adequate explanations *WITHIN THE SPECIFIED TOPIC.*
+
+  6. Content Type:
+  - The content should be suitable for presentation, not a textbook.
+  - *DO NOT INCLUDE SAMPLE EXERCISES.* Only include examples meant to illustrate the topic.
+  - Be concise.
+
+  7. Gap Handling:
+  - *If content appears incomplete and is MISSING information that is required to understand the target topic, ONLY include that information. For example, if explaining the second law of thermodynamics requires knowing the first, ONLY provide the minimum information needed. DO NOT start teaching from scratch.*
+  - Clearly indicate synthesized content in confidenceRemark.
+  - Maintain consistency with academic standards.
+
+  8. References:
+  - Mention related topics naturally *ONLY IF REQUIRED TO DEFINE OR EXPLAIN THE MAIN TOPIC.*
+  - Avoid specific page numbers or external references.
+  - Use general academic language for cross-references.
+
+  9. Ignore Learning Objectives:
+  -no need to list useless objectives as that is boring for students
+
+  QUALITY ASSURANCE:
+  1. Verify all required metadata fields are properly assessed.
+  2. Ensure HTML structure is valid and nested correctly.
+  3. Check mathematical expressions for correctness.
+  4. Verify code examples are properly formatted.
+  5. *CONFIRM THAT CONTENT STAYS STRICTLY WITHIN THE SPECIFIED TOPIC BOUNDARIES.*
+  6. Assess confidence level honestly and thoroughly.
+
+  Process the input content according to these specifications, maintaining academic rigor while ensuring clarity and proper structure. Focus on creating a self-contained, well-structured document that effectively teaches the specific topic in a concise presentation-friendly format.
+
+  *IF YOU ARE EVER UNSURE IF A SECTION IS RELEVANT TO THE TOPIC HAND, EXCLUDE IT. BE CONSERVATIVE IN WHAT YOU INCLUDE. IT IS BETTER TO OMIT THAN TO INCLUDE UNDESIRED CONTENT.*
+
+  *In your confidenceRemark, explicitly mention if you had to exclude content due to uncertainty about its relevance to the specified topic, or if you excluded content to maintain brevity for a presentation format.*
+
+  `;
+
+const userPrompt = `
+You are an expert course outline architect specializing in converting textbook content into structured learning paths.
+Your expertise includes:
+- Breaking down complex educational content into logical learning segments
+- Determining precise content scope and boundaries
+- Estimating content density and learning time requirements
+- Creating meaningful traversable knowledge structures
+- Generating consistent and clear reference identifiers
+
+Create a detailed course outline following these strict requirements:
+
+  1. OUTPUT STRUCTURE
+  A section must follow this JSON structure:
+  interface Section {
+    title,
+    filename,
+    pageStart, // Starting page number for this section
+    pageEnd, // Ending page number for this section
+    topics or subsections
+  };
+  interface Topic {
+    title,
+    filename,
+    paragraphs,
+    pageStart,  // Starting page number for this topic
+    pageEnd     // Ending page number for this topic
+  };
+  You will output directly an array of Section objects;
+  the property topic of Section is an array of Topic object;
+  the property subsections of Section is an array of mix of Topic and Section objects;
+  The Section object can go recursively within subsection properties for hierarchical topics;
+  To decide between just putting a Topic object or going recursively a layer down is based on the content;
+  Section object can ONLY have either a topics property or subsections property, NEVER both;
+
+  2. STRUCTURAL RULES
+  - Each section object MUST have either topics OR subsections properties, never both
+  - Treat chapters as top-level sections that typically contain multiple subsections
+  - Make the titles similar to that of in the content of the textbook while making it as short as possible
+  - Track page ranges using <!-- Page n --> comments in the content
+  - IMPORTANT: Only use <!-- Page n --> comments to determine page numbers. Ignore any other page numbering or formatting in the content text itself
+  - For each topic, include:
+    • pageStart: First page where topic content appears
+    • pageEnd: Last page where topic content appears
+  - Exclude ALL sections dedicated to:
+    • Sample questions
+    • Exercises
+    • Review questions
+    • Summaries
+    • Glossaries
+    • References
+    • Optional readings
+    • Supplementary materials
+  - Include accurate paragraph count estimates for each topic (convert tables and lists to paragraph equivalents)
+
+  3. FILENAME REQUIREMENTS
+  - Use kebab-case format
+  - Maximum 30 characters when possible
+  - Must be unique across the entire outline
+  - Use these abbreviations as guideline:
+    • introduction → intro
+    • management → mgmt
+    • system → sys
+    • database → db
+    • programming → prog
+    • development → dev
+    • implementation → impl
+    • architecture → arch
+    • application → app
+    • structure → struct
+    • algorithm → algo
+    • configuration → config
+    • analysis → anal
+    • fundamentals → fund
+    • principles → prin
+    • techniques → tech
+  - Remove all common words:
+    • the, and, or, of, to, for, in, on, at
+  - Keep only 3-4 significant terms maximum when possible
+  - Ensure absolute filename uniqueness across entire outline
+
+  4. OUTPUT FORMAT
+  - Must be valid JSON
+  - Must maintain proper nesting and structure
+  - Must follow all rules precisely
+  - Each Topic object must include pageStart and pageEnd numbers
+
+  Content to process:
+  ${textContent}
+
+  YOU MUST RESPOND WITH RAW JSON ONLY
+  `;
+````
+
+## File: agents/package.json
+````json
+{
+  "name": "agents",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "agent-utils.js",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "base64-js": "^1.5.1",
+    "bl": "^4.1.0",
+    "buffer": "^5.7.1",
+    "canvas": "^3.1.0",
+    "chownr": "^1.1.4",
+    "debug": "^3.2.7",
+    "decompress-response": "^6.0.0",
+    "deep-extend": "^0.6.0",
+    "detect-libc": "^2.0.3",
+    "end-of-stream": "^1.4.4",
+    "expand-template": "^2.0.3",
+    "follow-redirects": "^1.15.9",
+    "fs-constants": "^1.0.0",
+    "github-from-package": "^0.0.0",
+    "ieee754": "^1.2.1",
+    "inherits": "^2.0.4",
+    "ini": "^1.3.8",
+    "mimic-response": "^3.1.0",
+    "minimist": "^1.2.8",
+    "mkdirp-classic": "^0.5.3",
+    "ms": "^2.1.3",
+    "napi-build-utils": "^2.0.0",
+    "node-abi": "^3.74.0",
+    "node-addon-api": "^7.1.1",
+    "node-ensure": "^0.0.0",
+    "once": "^1.4.0",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^4.10.38",
+    "prebuild-install": "^7.1.3",
+    "pump": "^3.0.2",
+    "rc": "^1.2.8",
+    "readable-stream": "^3.6.2",
+    "safe-buffer": "^5.2.1",
+    "semver": "^7.7.1",
+    "simple-concat": "^1.0.1",
+    "simple-get": "^4.0.1",
+    "string_decoder": "^1.3.0",
+    "strip-json-comments": "^2.0.1",
+    "tar-fs": "^2.1.2",
+    "tar-stream": "^2.2.0",
+    "tunnel-agent": "^0.6.0",
+    "util-deprecate": "^1.0.2",
+    "wrappy": "^1.0.2",
+    "youtube-search-api": "^1.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.22.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+````
+
+## File: agents/parse-exams.js
+````javascript
+import fs from "node:fs/promises";
+import path from "node:path";
+import { callModel } from "./agent-utils.js";
+
+function removeProps(obj) {
+  if (Array.isArray(obj)) {
+    return obj.map(removeProps);
+  }
+
+  if (typeof obj === "object" && obj !== null) {
+    const newObj = {};
+    for (const key in obj) {
+      if (
+        key !== "pageStart" &&
+        key !== "pageEnd" &&
+        key !== "paragraphs" &&
+        !(key === "filename" && obj.hasOwnProperty("subsections"))
+      ) {
+        newObj[key] = removeProps(obj[key]);
+      }
+    }
+    return newObj;
+  }
+
+  return obj;
+}
+
+async function getUnprocessedExamFolders(courseRoot) {
+  try {
+    const examsFolderPath = path.join(courseRoot, "exams");
+    const folders = await fs.readdir(examsFolderPath);
+
+    const unprocessedFolders = [];
+    for (const folder of folders) {
+      const folderPath = path.join(examsFolderPath, folder);
+      const stats = await fs.stat(folderPath);
+
+      if (stats.isDirectory()) {
+        const hasExamsHtml = await fs
+          .access(path.join(folderPath, "exams.json"))
+          .then(() => true)
+          .catch(() => false);
+
+        if (!hasExamsHtml) {
+          unprocessedFolders.push(folder);
+        }
+      }
+    }
+
+    return unprocessedFolders;
+  } catch (error) {
+    console.error("Error getting unprocessed folders:", error);
+    throw error;
+  }
+}
+
+async function getTextFilesForFolder(courseRoot, folderName) {
+  try {
+    const folderPath = path.join(courseRoot, "exams", folderName);
+    const files = await fs.readdir(folderPath);
+    const textFiles = files.filter((f) => /\.(txt)$/i.test(f));
+
+    const textContents = [];
+    for (const txtFile of textFiles) {
+      const txtPath = path.join(folderPath, txtFile);
+      const content = await fs.readFile(txtPath, "utf-8");
+      textContents.push({
+        fileName: txtFile,
+        content,
+      });
+    }
+
+    return textContents;
+  } catch (error) {
+    console.error("Error getting text files:", error);
+    throw error;
+  }
+}
+
+async function readAndCleanOutline(courseRoot) {
+  try {
+    const outlineContent = await fs.readFile(
+      path.join(courseRoot, "outline.json"),
+      "utf-8",
+    );
+    const outline = JSON.parse(outlineContent);
+
+    return removeProps(outline);
+  } catch (error) {
+    console.error("Error reading/cleaning outline:", error);
+    throw error;
+  }
+}
+
+async function getImgsForFolder(courseRoot, folderName) {
+  try {
+    const folderPath = path.join(courseRoot, "exams", folderName);
+    const files = await fs.readdir(folderPath);
+    const imageFiles = files.filter((f) => /\.(jpg|jpeg|png)$/i.test(f));
+
+    const images = [];
+    for (const imgFile of imageFiles) {
+      const imgPath = path.join(folderPath, imgFile);
+      const buffer = await fs.readFile(imgPath);
+      images.push({
+        inlineData: {
+          data: buffer.toString("base64"),
+          mimeType: `image/${path.extname(imgFile).slice(1)}`,
+        },
+      });
+    }
+
+    return images;
+  } catch (error) {
+    console.error("Error getting images:", error);
+    throw error;
+  }
+}
+
+async function createExams(
+  cleanOutline,
+  input,
+  courseRoot,
+  folderName,
+  isImage = true,
+) {
+  try {
+    let prompt;
+    let response;
+
+    if (isImage) {
+      // If input is an image
+      prompt = getImageExamCreatorPropmt(cleanOutline);
+      response = await callModel(prompt, { images: [input] });
+    } else {
+      // If input is text content
+      prompt = getTextExamCreatorPrompt(cleanOutline, input.content);
+      response = await callModel(prompt);
+    }
+
+    // Parse JSON response
+    const course = path.basename(courseRoot.replace(/\/$/, ""));
+    const examId = folderName.split(".")[0];
+    const src = folderName.split(".")[1];
+    const questions = JSON.parse(response);
+    const questionWithMoreMeta = questions.map((question) => ({
+      ...question,
+      metadata: {
+        ...question.metadata,
+        course,
+        examId,
+        src,
+      },
+    }));
+
+    const examPath = path.join(courseRoot, "exams", folderName, "exams.json");
+
+    // Check if file exists and read current content
+    let currentQuestions = [];
+    try {
+      const content = await fs.readFile(examPath, "utf-8");
+      currentQuestions = JSON.parse(content);
+    } catch (err) {
+      // File doesn't exist yet, start with empty array
+    }
+
+    // Append new questions
+    const updatedQuestions = [...currentQuestions, ...questions];
+
+    // Write updated content
+    await fs.writeFile(examPath, JSON.stringify(updatedQuestions, null, 2));
+
+    return questions;
+  } catch (error) {
+    console.error("Error creating/appending exam:", error);
+    throw error;
+  }
+}
+
+async function main() {
+  try {
+    const courseRoot = process.argv[2];
+    if (!courseRoot) {
+      throw new Error("Course root path required");
+    }
+
+    const unprocessedFolders = await getUnprocessedExamFolders(courseRoot);
+    const cleanOutline = await readAndCleanOutline(courseRoot);
+    console.log(`Starting to process ${unprocessedFolders.length} folders...`);
+
+    for (const [folderIndex, folder] of unprocessedFolders.entries()) {
+      console.log("=========================================");
+      console.log(`Processing folder: ${folder}`);
+
+      // Process images
+      const images = await getImgsForFolder(courseRoot, folder);
+      for (const [imageIndex, image] of images.entries()) {
+        console.log("---------------------------------------");
+        console.log(
+          `Processing image ${imageIndex + 1}/${images.length} in folder ${folderIndex + 1}/${unprocessedFolders.length} (${folder})`,
+        );
+        await createExams(cleanOutline, image, courseRoot, folder, true);
+        console.log(`Finised this image`);
+      }
+
+      // Process text files
+      const textFiles = await getTextFilesForFolder(courseRoot, folder);
+      for (const [textIndex, textFile] of textFiles.entries()) {
+        console.log("---------------------------------------");
+        console.log(
+          `Processing text file ${textIndex + 1}/${textFiles.length} in folder ${folderIndex + 1}/${unprocessedFolders.length} (${folder})`,
+        );
+        await createExams(cleanOutline, textFile, courseRoot, folder, false);
+        console.log(`Finised this text file`);
+      }
+    }
+
+    console.log("All folders, images, and text files processed successfully");
+  } catch (error) {
+    console.error("Error in main process:", error);
+    process.exit(1);
+  }
+}
+
+main();
+
+const getTextExamCreatorPrompt = (cleanOutline, textContent) =>
+  `You are an expert exam question analyzer and reconstructor.
+  Your task is to process raw text of exam questions, analyze them, and output structured questions with metadata.
+  You must work with the provided course outline JSON to properly categorize questions.
+
+  COURSE OUTLINE:
+  ${JSON.stringify(cleanOutline, null, 2)}
+
+  RAW TEXT CONTENT:
+  ${textContent}
+
+  CORE RESPONSIBILITIES:
+  1. Process raw text content (single or multiple questions per text)
+  2. Identify and structure individual questions from unformatted text
+  3. Generate structured output with metadata and content
+  4. Convert questions to supported formats (multiple-choice, true/false, workout/short-answer)
+  5. Map questions to course topics
+
+  OUTPUT STRUCTURE:
+  For each question, generate an object with properties metadata, hint, solution, question, and options (for multiple-choice questions) and output an array of those objects directly:
+  {
+    "metadata": {
+      "topic": "topic-filename", // The filename of the topic of question
+      "difficulty": number(1-10),
+      "questionType": "multiple-choice" | "true-false" | "workout",
+      "src": "real" | "reconst",
+      "confidence": number(1-10),
+      "confidenceRemark": "string",
+      "correctAnswer": number | "true" | "false" | null // index of correct option (0-based) or null for workout problems
+    },
+    "hint": "<div class="hint"> {{hint here with HTML formatting}} </div>",
+    "solution": "<div class="solution"> {{solution here with HTML formatting}} </div>",
+    "question": "<div class="question-text"> {{question text here with HTML formatting}} </div>",
+    "options": [
+      "<div class=\"option-content\">First option with HTML formatting</div>",
+      "<div class=\"option-content\">Second option with HTML formatting</div>",
+      "<div class=\"option-content\">Third option with HTML formatting</div>",
+      "<div class=\"option-content\">Fourth option with HTML formatting</div>"
+    ] // Include this array only for multiple-choice questions
+  }
+
+
+
+  RULES AND GUIDELINES:
+
+  1. Question Processing:
+  - Mark as "real" only if question is completely clear and comprehensible
+  - Mark as "reconst" if ANY part needs reconstruction
+  - For workout/short answer questions, do not include options property
+  - Maintain topic relevance when reconstructing
+  - Preserve original difficulty level when determinable
+  - Convert matching, fill-in-blank or any other question types outside of true/false or workout to multiple-choice
+  - For matching questions:
+    - Each item in first column becomes a separate multiple choice question
+    - Maximum 4 options per question from second column items
+    - Randomize option order while maintaining correct pairing
+    - Include original matching format in question text for context
+  - For fill-in-the-blank questions:
+      - Convert blank into question with 4 options
+      - Include the correct answer and 3 plausible distractors
+      - Keep original sentence structure
+      - Options should be grammatically consistent
+      - All options should fit naturally in the blank
+
+  2. Topic Mapping:
+  - Use topic filenames in metadata
+  - Include confidence remark if topic mapping is uncertain or your answer is uncertain
+
+  3. Content Formatting: ALLOWED HTML ELEMENTS AND USAGE FOR QUESTION CONTENT, HINT, OPTIONS AND EXPLANATIONS/SOLUTIONS:
+
+    Heading Structure:
+    <h1> - Main topic title only
+    <h2> - Major section divisions
+    <h3> - Subsection headings
+    Maintain strict hierarchy; no skipping levels
+
+    Content Containers:
+    <p> - Standard paragraphs
+    <div> and <span> with classes:
+    - class="definition" - Formal term definitions
+    - class="example" - Illustrative examples
+    - class="note" - Tips, important points, warnings
+
+    Mathematical Content:
+    <span class="math-inline"> - For inline mathematics
+    <div class="math-display"> - For displayed equations
+    [Use combination of LaTeX and unicode; ensure proper delimiters]
+
+    Code Sections:
+    <pre><code class="language-[name]"> - For code snippets
+    [Always specify language; ensure proper formatting]
+
+    List Structures:
+    <ul> - Unordered lists (concepts, points)
+    <ol> - Ordered lists (steps, procedures)
+    <li> - List items
+    [Maintain proper nesting for complex multi-level lists; use appropriate type]
+
+    Text Emphasis:
+    <strong> - Critical emphasis
+    <em> - Secondary emphasis
+    <u> - Underlining
+    [Use sparingly and meaningfully]
+
+    Special Elements:
+    <blockquote> - Significant quotes or key points
+    <table>, <th>, <tr>, <td> - Tabular data
+    <hr> - Major section breaks
+
+  4. Mathematical Content:
+  - Use KaTeX for mathematical expressions
+  - Use appropriate math-inline or math-display classes
+  - Combine with Unicode where appropriate
+
+  EXAMPLES:
+
+  1. Clear Multiple Choice Question:
+  [Example raw text of a question about DFS algorithm]
+
+  {
+    "metadata": {
+      "topic": "problem-solving-search",
+      "difficulty": 7,
+      "questionType": "multiple-choice",
+      "src": "real",
+      "confidence": 9,
+      "confidenceRemark": "Clear question with direct topic mapping",
+      "correctAnswer": 1
+    },
+    "hint": "<div class="hint">Remember that DFS explores as far as possible along each branch before backtracking.</div>",
+    "solution": "<div class="solution">
+      <p>The correct answer is 1-2-3-4-5. Here's why:</p>
+      <ol>
+          <li>Starting at node 1</li>
+          <li>Following DFS principle, we go deep through the leftmost path first</li>
+          <li>This leads us to sequence 1-2-3</li>
+          <li>After backtracking, we visit 4 and finally 5</li>
+      </ol>
+      <p>Alternative approach: You could also verify this by drawing the DFS tree.</p>
+    </div>",
+    "question": "<div class="question-text">
+        Consider the following graph traversal using DFS:
+        <div class="math-display">
+            [Graph representation in KaTeX]
+        </div>
+        What is the correct sequence of visited nodes?
+    </div>",
+    "options": [
+      "<div class=\"option-content\">1-2-4-3-5</div>",
+      "<div class=\"option-content\">1-2-3-4-5</div>",
+      "<div class=\"option-content\">1-3-2-4-5</div>",
+      "<div class=\"option-content\">1-2-3-5-4</div>"
+    ]
+  }
+
+  VALIDATION REQUIREMENTS:
+  1. Ensure correctAnswer is the index (0-based) of the correct option in the options array
+  2. Verify topic filenames exist in course outline
+  3. Confirm difficulty and confidence are 1-10
+  4. Validate HTML structure matches allowed elements
+  5. Ensure mathematical expressions are properly formatted
+
+  When processing new questions:
+  1. Analyze the text content thoroughly
+  2. Identify and separate individual questions
+  3. Determine question type and reconstruction needs
+  4. Map to course topics
+  5. Generate structured output
+  6. Include detailed solutions with explanations
+  7. Provide helpful hints
+  8. Validate all metadata and content
+
+  Process the exam questions and output structured data according to these specifications.`;
+
+const getImageExamCreatorPropmt = (cleanOutline) =>
+  `You are an expert exam question analyzer and reconstructor.
+  Your task is to process images of exam questions, analyze them, and output structured questions with metadata.
+  You must work with the provided course outline JSON to properly categorize questions.
+
+  COURSE OUTLINE:
+  ${JSON.stringify(cleanOutline, null, 2)}
+
+  CORE RESPONSIBILITIES:
+  1. Process exam question image (single or multiple questions per image)
+  2. Reconstruct unclear/incomplete questions while maintaining topic relevance
+  3. Generate structured output with metadata and content
+  4. Convert questions to supported formats (multiple-choice, true/false, workout/short-answer)
+  5. Map questions to course topics
+
+  OUTPUT STRUCTURE:
+  For each question, generate an object with properties metadata, hint, solution, question, and options (for multiple-choice questions) and output an array of those objects directly:
+  {
+    "metadata": {
+      "topic": "topic-filename",
+      "difficulty": number(1-10),
+      "questionType": "multiple-choice" | "true-false" | "workout",
+      "src": "real" | "reconst",
+      "confidence": number(1-10),
+      "confidenceRemark": "string",
+      "correctAnswer": number | "true" | "false" | null // index of correct option (0-based) or true/false or null for workout problems
+    },
+    "hint": "<div class="hint"> {{hint here with HTML formatting}} </div>",
+    "solution": "<div class="solution"> {{solution here with HTML formatting}} </div>",
+    "question": "<div class="question-text"> {{question text here with HTML formatting}} </div>",
+    "options": [
+      "<div class=\"option-content\">First option with HTML formatting</div>",
+      "<div class=\"option-content\">Second option with HTML formatting</div>",
+      "<div class=\"option-content\">Third option with HTML formatting</div>",
+      "<div class=\"option-content\">Fourth option with HTML formatting</div>"
+    ] // Include this array only for multiple-choice questions
+  }
+
+
+
+  RULES AND GUIDELINES:
+
+  1. Question Processing:
+  - Mark as "real" only if question is completely clear and readable
+  - Mark as "reconst" if ANY part needs reconstruction
+  - For workout/short answer questions, do not include options property
+  - Maintain topic relevance when reconstructing
+  - Preserve original difficulty level when determinable
+  - Convert matching, fill-in-blank or any other question types outside of true/false or workout to multiple-choice
+  - For matching questions:
+    - Each item in first column becomes a separate multiple choice question
+    - Maximum 4 options per question from second column items
+    - Randomize option order while maintaining correct pairing
+    - Include original matching format in question text for context
+  - For fill-in-the-blank questions:
+      - Convert blank into question with 4 options
+      - Include the correct answer and 3 plausible distractors
+      - Keep original sentence structure
+      - Options should be grammatically consistent
+      - All options should fit naturally in the blank
+
+  2. Topic Mapping:
+  - Use topic filenames in metadata
+  - Include confidence remark if topic mapping is uncertain or your answer is uncertain
+
+  3. Content Formatting: ALLOWED HTML ELEMENTS AND USAGE FOR QUESTION CONTENT, HINT, OPTIONS AND EXPLANATIONS/SOLUTIONS:
+
+    Heading Structure:
+    <h1> - Main topic title only
+    <h2> - Major section divisions
+    <h3> - Subsection headings
+    Maintain strict hierarchy; no skipping levels
+
+    Content Containers:
+    <p> - Standard paragraphs
+    <div> and <span> with classes:
+    - class="definition" - Formal term definitions
+    - class="example" - Illustrative examples
+    - class="note" - Tips, important points, warnings
+
+    Mathematical Content:
+    <span class="math-inline"> - For inline mathematics
+    <div class="math-display"> - For displayed equations
+    [Use combination of LaTeX and unicode; ensure proper delimiters]
+
+    Code Sections:
+    <pre><code class="language-[name]"> - For code snippets
+    [Always specify language; ensure proper formatting]
+
+    List Structures:
+    <ul> - Unordered lists (concepts, points)
+    <ol> - Ordered lists (steps, procedures)
+    <li> - List items
+    [Maintain proper nesting for complex multi-level lists; use appropriate type]
+
+    Text Emphasis:
+    <strong> - Critical emphasis
+    <em> - Secondary emphasis
+    <u> - Underlining
+    [Use sparingly and meaningfully]
+
+    Special Elements:
+    <blockquote> - Significant quotes or key points
+    <table>, <th>, <tr>, <td> - Tabular data
+    <hr> - Major section breaks
+
+  4. Mathematical Content:
+  - Use KaTeX for mathematical expressions
+  - Use appropriate math-inline or math-display classes
+  - Combine with Unicode where appropriate
+
+  EXAMPLES:
+
+  1. Clear Multiple Choice Question:
+  [Example image of a clear question about DFS algorithm]
+
+  {
+    "metadata": {
+      "topic": "problem-solving-search",
+      "difficulty": 7,
+      "questionType": "multiple-choice",
+      "src": "real",
+      "confidence": 9,
+      "confidenceRemark": "Clear question with direct topic mapping",
+      "correctAnswer": 1
+    },
+    "hint": "<div class="hint">Remember that DFS explores as far as possible along each branch before backtracking.</div>",
+    "solution": "<div class="solution">
+      <p>The correct answer is 1-2-3-4-5. Here's why:</p>
+      <ol>
+          <li>Starting at node 1</li>
+          <li>Following DFS principle, we go deep through the leftmost path first</li>
+          <li>This leads us to sequence 1-2-3</li>
+          <li>After backtracking, we visit 4 and finally 5</li>
+      </ol>
+      <p>Alternative approach: You could also verify this by drawing the DFS tree.</p>
+    </div>",
+    "question": "<div class="question-text">
+        Consider the following graph traversal using DFS:
+        <div class="math-display">
+            [Graph representation in KaTeX]
+        </div>
+        What is the correct sequence of visited nodes?
+    </div>",
+    "options": [
+      "<div class=\"option-content\">1-2-4-3-5</div>",
+      "<div class=\"option-content\">1-2-3-4-5</div>",
+      "<div class=\"option-content\">1-3-2-4-5</div>",
+      "<div class=\"option-content\">1-2-3-5-4</div>"
+    ]
+  }
+
+  VALIDATION REQUIREMENTS:
+  1. Ensure correctAnswer is the index (0-based) of the correct option in the options array
+  2. Verify topic filenames exist in course outline
+  3. Confirm difficulty and confidence are 1-10
+  4. Validate HTML structure matches allowed elements
+  5. Ensure mathematical expressions are properly formatted
+
+  When processing new questions:
+  1. Analyze the image thoroughly
+  2. Determine question type and reconstruction needs
+  3. Map to course topics
+  4. Generate structured output
+  5. Include detailed solutions with explanations
+  6. Provide helpful hints
+  7. Validate all metadata and content
+
+  Process the exam questions and output structured data according to these specifications.`;
+````
+
+## File: agents/sampleing
+````
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+export const mockExitExam: ExitExam = {
+  examId: "cs-exit-2016",
+  examTitle: "2016 Computer Science",
+  tags: ["Computer Science", "Exit Exam", "2016"],
+
+  examType: "exitexam",
+  dept: "Computer Science",
+  duration: 180,
+  totalQuestions: 100,
+  totalMarks: 100,
+  courses: [
+    {
+      courseId: "cs101",
+      courseTitle: "Introduction to Programming",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs201",
+      courseTitle: "Data Structures and Algorithms",
+      questionCount: 20,
+    },
+    {
+      courseId: "cs301",
+      courseTitle: "Database Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs302",
+      courseTitle: "Operating Systems",
+      questionCount: 15,
+    },
+    {
+      courseId: "cs401",
+      courseTitle: "Computer Networks",
+      questionCount: 12,
+    },
+    {
+      courseId: "cs402",
+      courseTitle: "Software Engineering",
+      questionCount: 13,
+    },
+    {
+      courseId: "cs403",
+      courseTitle: "Theory of Computation",
+      questionCount: 10,
+    },
+  ],
+};
+````
+
+## File: public/intro.html
+````html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App Onboarding</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #f0f0f0;
+        overflow: hidden;
+      }
+
+      .box {
+        position: absolute;
+        width: 400px;
+        height: 500px;
+        background: #ffeb3b;
+        border: 8px solid #000;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 20px 20px;
+        box-sizing: border-box;
+        font-family: "Comic Sans MS", cursive;
+      }
+
+      .label {
+        position: absolute;
+        top: -30px;
+        font-size: 36px;
+        font-weight: bold;
+        transform: rotate(-5deg);
+      }
+
+      .item {
+        font-size: 24px;
+        margin: 10px 0;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .item span {
+        display: inline-block;
+      }
+
+      .hand {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="purple" d="M12 2L2 22h20L12 2zm0 4l6 12H6l6-12z"/></svg>')
+          no-repeat center;
+        background-size: contain;
+        pointer-events: none;
+      }
+
+      /* Animations */
+      @keyframes slideIn {
+        0% {
+          transform: translateX(-100%) scale(0.8);
+        }
+        80% {
+          transform: translateX(10%) scale(1.1);
+        }
+        100% {
+          transform: translateX(0) scale(1);
+        }
+      }
+
+      @keyframes slideOut {
+        0% {
+          transform: translateX(0) scale(1);
+        }
+        100% {
+          transform: translateX(-100%) scale(0.5) rotate(10deg);
+        }
+      }
+
+      @keyframes slideInRight {
+        0% {
+          transform: translateX(100%) scale(0.9);
+        }
+        80% {
+          transform: translateX(-10%) scale(1.1);
+        }
+        100% {
+          transform: translateX(0) scale(1);
+        }
+      }
+
+      @keyframes slideOutRight {
+        0% {
+          transform: translateX(0) scale(1);
+        }
+        100% {
+          transform: translateX(100%) scale(0.5) rotate(-15deg);
+        }
+      }
+
+      @keyframes popIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-50px) scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(0) scale(1.2);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes tap {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes glow {
+        0% {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #ff00ff;
+        }
+        100% {
+          border-color: transparent;
+        }
+      }
+
+      @keyframes expand {
+        0% {
+          height: 40px;
+        }
+        80% {
+          height: 140px;
+          transform: scaleX(1.1);
+        }
+        100% {
+          height: 140px;
+          transform: scaleX(1);
+        }
+      }
+
+      @keyframes slideSub {
+        0% {
+          opacity: 0;
+          transform: translateX(-50px) scaleX(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0) scaleX(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="topicBox" class="box">
+      <div class="label">Topic</div>
+      <div class="item"><span>📖</span> Read</div>
+      <div class="item"><span>▶️</span> Videos</div>
+      <div class="item"><span>🤖</span> AI Simplified</div>
+      <div class="item"><span>💡</span> Fun Facts</div>
+      <div class="item" id="quizItem"><span>⭐</span> Quiz</div>
+    </div>
+    <div id="quizBox" class="box" style="background: #ff5722; display: none">
+      <div class="label">Quiz</div>
+      <div class="item"><span>💬</span> Explanations</div>
+      <div class="item"><span>🔍</span> Hints</div>
+      <div class="item"><span>📚</span> Read Topics</div>
+      <div class="item" id="studyPlan" style="height: 40px">
+        <span>📅</span> Study Plan
+      </div>
+    </div>
+    <div id="hand" class="hand" style="display: none"></div>
+
+    <script>
+      const topicBox = document.getElementById("topicBox");
+      const quizBox = document.getElementById("quizBox");
+      const hand = document.getElementById("hand");
+      const quizItem = document.getElementById("quizItem");
+      const studyPlan = document.getElementById("studyPlan");
+
+      // Step 1: Topic Box In
+      topicBox.style.animation = "slideIn 0.4s forwards";
+      setTimeout(() => {
+        const items = topicBox.querySelectorAll(".item");
+        items.forEach((item, i) => {
+          setTimeout(() => {
+            item.style.animation = "popIn 0.2s forwards";
+            // Trigger "thud" sound here
+          }, i * 300);
+        });
+      }, 400);
+
+      // Step 2: Hand Clicks Quiz
+      setTimeout(() => {
+        hand.style.display = "block";
+        hand.style.top = `${quizItem.offsetTop - 50}px`;
+        hand.style.left = "500px";
+        hand.style.animation = "slideInRight 0.3s forwards";
+        setTimeout(() => {
+          hand.style.animation = "tap 0.2s";
+          quizItem.style.animation = "popIn 0.2s, glow 0.2s";
+          // Trigger "click" sound here
+        }, 500); // Hover 0.2s after 0.3s entry
+      }, 1900); // After items finish (1.5s + 0.4s)
+
+      // Step 3: Quiz Box In
+      setTimeout(() => {
+        topicBox.style.animation = "slideOut 0.3s forwards";
+        // Trigger "whoosh" sound here
+        setTimeout(() => {
+          topicBox.style.display = "none";
+          quizBox.style.display = "block";
+          quizBox.style.animation = "slideInRight 0.4s forwards";
+          // Trigger "bam" sound here
+          setTimeout(() => {
+            const items = quizBox.querySelectorAll(".item");
+            items.forEach((item, i) => {
+              setTimeout(() => {
+                item.style.animation = "popIn 0.2s forwards";
+                // Trigger "thud" sound here
+              }, i * 300);
+            });
+          }, 400);
+        }, 300);
+      }, 2600); // After hand tap (1.9s + 0.7s)
+
+      // Step 4: Study Plan Expands
+      setTimeout(() => {
+        studyPlan.style.animation = "expand 0.3s forwards";
+        // Trigger "boing" sound here
+        setTimeout(() => {
+          studyPlan.innerHTML += `
+                    <div class="item" style="margin-left: 20px; animation: slideSub 0.2s forwards;"><span>😓</span> Weak Topics</div>
+                    <div class="item" style="margin-left: 20px; animation: slideSub 0.2s forwards 0.2s;"><span>💪</span> Strong Topics</div>
+                `;
+          setTimeout(() => {
+            const weakTopics = document.createElement("div");
+            weakTopics.innerHTML = `
+                        <div class="item" style="margin-left: 40px;"><span>🧮</span> Math Basics</div>
+                        <div class="item" style="margin-left: 40px;"><span>⚗️</span> Science 101</div>
+                    `;
+            studyPlan.appendChild(weakTopics);
+            weakTopics.querySelectorAll(".item").forEach((item, i) => {
+              setTimeout(() => {
+                item.style.animation = "popIn 0.2s forwards";
+                // Trigger "thud" sound here
+              }, i * 200);
+            });
+            setTimeout(() => {
+              const mathBasics = weakTopics.children[0];
+              hand.style.top = `${mathBasics.offsetTop - 50}px`;
+              hand.style.left = "500px";
+              hand.style.animation = "slideInRight 0.3s forwards";
+              setTimeout(() => {
+                hand.style.animation = "tap 0.2s";
+                mathBasics.style.animation = "popIn 0.2s, glow 0.2s";
+                // Trigger "click" sound here
+              }, 500); // Hover 0.2s after 0.3s entry
+            }, 400); // After weak topics
+          }, 400); // After sub-items
+        }, 300); // After expand
+      }, 4500); // After quiz items (2.6s + 1.9s)
+
+      // Step 5: Loop Back to Topic Box
+      setTimeout(() => {
+        quizBox.style.animation = "slideOutRight 0.3s forwards";
+        // Trigger "whoosh" sound here
+        setTimeout(() => {
+          quizBox.style.display = "none";
+          topicBox.style.display = "block";
+          topicBox.style.animation = "slideIn 0.4s forwards";
+          setTimeout(() => {
+            const items = topicBox.querySelectorAll(".item");
+            items.forEach((item, i) => {
+              item.style.opacity = "0"; // Reset
+              setTimeout(() => {
+                item.style.animation = "popIn 0.2s forwards";
+                // Trigger "thud" sound here
+              }, i * 300);
+            });
+          }, 400);
+        }, 300);
+      }, 6100); // After hand tap (4.5s + 1.6s)
+    </script>
+  </body>
+</html>
+````
+
+## File: src/lib/components/ui/avatar/avatar-fallback.svelte
+````
 <script lang="ts">
 	import { Avatar as AvatarPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -180,9 +3649,10 @@ This section contains the contents of the repository's files.
 	class={cn("bg-muted flex size-full items-center justify-center", className)}
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/avatar/avatar-image.svelte">
+## File: src/lib/components/ui/avatar/avatar-image.svelte
+````
 <script lang="ts">
 	import { Avatar as AvatarPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -195,9 +3665,10 @@ This section contains the contents of the repository's files.
 </script>
 
 <AvatarPrimitive.Image bind:ref class={cn("aspect-square size-full", className)} {...restProps} />
-</file>
+````
 
-<file path="lib/components/ui/avatar/avatar.svelte">
+## File: src/lib/components/ui/avatar/avatar.svelte
+````
 <script lang="ts">
 	import { Avatar as AvatarPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -214,9 +3685,10 @@ This section contains the contents of the repository's files.
 	class={cn("relative flex size-10 shrink-0 overflow-hidden rounded-full", className)}
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/avatar/index.ts">
+## File: src/lib/components/ui/avatar/index.ts
+````typescript
 import Root from "./avatar.svelte";
 import Image from "./avatar-image.svelte";
 import Fallback from "./avatar-fallback.svelte";
@@ -230,9 +3702,10 @@ export {
 	Image as AvatarImage,
 	Fallback as AvatarFallback,
 };
-</file>
+````
 
-<file path="lib/components/ui/button/button.svelte">
+## File: src/lib/components/ui/button/button.svelte
+````
 <script lang="ts" module>
 	import type { WithElementRef } from "bits-ui";
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from "svelte/elements";
@@ -307,9 +3780,10 @@ export {
 		{@render children?.()}
 	</button>
 {/if}
-</file>
+````
 
-<file path="lib/components/ui/button/index.ts">
+## File: src/lib/components/ui/button/index.ts
+````typescript
 import Root, {
 	type ButtonProps,
 	type ButtonSize,
@@ -327,9 +3801,10 @@ export {
 	type ButtonSize,
 	type ButtonVariant,
 };
-</file>
+````
 
-<file path="lib/components/ui/card/card-content.svelte">
+## File: src/lib/components/ui/card/card-content.svelte
+````
 <script lang="ts">
 	import type { WithElementRef } from "bits-ui";
 	import type { HTMLAttributes } from "svelte/elements";
@@ -346,9 +3821,10 @@ export {
 <div bind:this={ref} class={cn("p-6", className)} {...restProps}>
 	{@render children?.()}
 </div>
-</file>
+````
 
-<file path="lib/components/ui/card/card-description.svelte">
+## File: src/lib/components/ui/card/card-description.svelte
+````
 <script lang="ts">
 	import type { WithElementRef } from "bits-ui";
 	import type { HTMLAttributes } from "svelte/elements";
@@ -365,9 +3841,10 @@ export {
 <p bind:this={ref} class={cn("text-muted-foreground text-sm", className)} {...restProps}>
 	{@render children?.()}
 </p>
-</file>
+````
 
-<file path="lib/components/ui/card/card-footer.svelte">
+## File: src/lib/components/ui/card/card-footer.svelte
+````
 <script lang="ts">
 	import type { WithElementRef } from "bits-ui";
 	import type { HTMLAttributes } from "svelte/elements";
@@ -384,9 +3861,10 @@ export {
 <div bind:this={ref} class={cn("flex items-center p-6 pt-0", className)} {...restProps}>
 	{@render children?.()}
 </div>
-</file>
+````
 
-<file path="lib/components/ui/card/card-header.svelte">
+## File: src/lib/components/ui/card/card-header.svelte
+````
 <script lang="ts">
 	import type { WithElementRef } from "bits-ui";
 	import type { HTMLAttributes } from "svelte/elements";
@@ -403,9 +3881,10 @@ export {
 <div bind:this={ref} class={cn("flex flex-col space-y-1.5 p-6 pb-0", className)} {...restProps}>
 	{@render children?.()}
 </div>
-</file>
+````
 
-<file path="lib/components/ui/card/card-title.svelte">
+## File: src/lib/components/ui/card/card-title.svelte
+````
 <script lang="ts">
 	import type { WithElementRef } from "bits-ui";
 	import type { HTMLAttributes } from "svelte/elements";
@@ -431,9 +3910,10 @@ export {
 >
 	{@render children?.()}
 </div>
-</file>
+````
 
-<file path="lib/components/ui/card/card.svelte">
+## File: src/lib/components/ui/card/card.svelte
+````
 <script lang="ts">
 	import type { WithElementRef } from "bits-ui";
 	import type { HTMLAttributes } from "svelte/elements";
@@ -454,9 +3934,10 @@ export {
 >
 	{@render children?.()}
 </div>
-</file>
+````
 
-<file path="lib/components/ui/card/index.ts">
+## File: src/lib/components/ui/card/index.ts
+````typescript
 import Root from "./card.svelte";
 import Content from "./card-content.svelte";
 import Description from "./card-description.svelte";
@@ -479,9 +3960,10 @@ export {
 	Header as CardHeader,
 	Title as CardTitle,
 };
-</file>
+````
 
-<file path="lib/components/ui/checkbox/checkbox.svelte">
+## File: src/lib/components/ui/checkbox/checkbox.svelte
+````
 <script lang="ts">
 	import { Checkbox as CheckboxPrimitive, type WithoutChildrenOrChild } from "bits-ui";
 	import Check from "lucide-svelte/icons/check";
@@ -517,18 +3999,20 @@ export {
 		</div>
 	{/snippet}
 </CheckboxPrimitive.Root>
-</file>
+````
 
-<file path="lib/components/ui/checkbox/index.ts">
+## File: src/lib/components/ui/checkbox/index.ts
+````typescript
 import Root from "./checkbox.svelte";
 export {
 	Root,
 	//
 	Root as Checkbox,
 };
-</file>
+````
 
-<file path="lib/components/ui/command/command-dialog.svelte">
+## File: src/lib/components/ui/command/command-dialog.svelte
+````
 <script lang="ts">
 	import type {
 		Command as CommandPrimitive,
@@ -564,9 +4048,10 @@ export {
 		/>
 	</Dialog.Content>
 </Dialog.Root>
-</file>
+````
 
-<file path="lib/components/ui/command/command-empty.svelte">
+## File: src/lib/components/ui/command/command-empty.svelte
+````
 <script lang="ts">
 	import { Command as CommandPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -579,9 +4064,10 @@ export {
 </script>
 
 <CommandPrimitive.Empty class={cn("py-6 text-center text-sm", className)} {...restProps} />
-</file>
+````
 
-<file path="lib/components/ui/command/command-group.svelte">
+## File: src/lib/components/ui/command/command-group.svelte
+````
 <script lang="ts">
 	import { Command as CommandPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -611,9 +4097,10 @@ export {
 	{/if}
 	<CommandPrimitive.GroupItems {children} />
 </CommandPrimitive.Group>
-</file>
+````
 
-<file path="lib/components/ui/command/command-input.svelte">
+## File: src/lib/components/ui/command/command-input.svelte
+````
 <script lang="ts">
 	import { Command as CommandPrimitive } from "bits-ui";
 	import Search from "lucide-svelte/icons/search";
@@ -639,9 +4126,10 @@ export {
 		bind:value
 	/>
 </div>
-</file>
+````
 
-<file path="lib/components/ui/command/command-item.svelte">
+## File: src/lib/components/ui/command/command-item.svelte
+````
 <script lang="ts">
 	import { Command as CommandPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -661,9 +4149,10 @@ export {
 	bind:ref
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/command/command-link-item.svelte">
+## File: src/lib/components/ui/command/command-link-item.svelte
+````
 <script lang="ts">
 	import { Command as CommandPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -683,9 +4172,10 @@ export {
 	bind:ref
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/command/command-list.svelte">
+## File: src/lib/components/ui/command/command-list.svelte
+````
 <script lang="ts">
 	import { Command as CommandPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -702,9 +4192,10 @@ export {
 	{...restProps}
 	bind:ref
 />
-</file>
+````
 
-<file path="lib/components/ui/command/command-separator.svelte">
+## File: src/lib/components/ui/command/command-separator.svelte
+````
 <script lang="ts">
 	import { Command as CommandPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -717,9 +4208,10 @@ export {
 </script>
 
 <CommandPrimitive.Separator class={cn("bg-border -mx-1 h-px", className)} bind:ref {...restProps} />
-</file>
+````
 
-<file path="lib/components/ui/command/command-shortcut.svelte">
+## File: src/lib/components/ui/command/command-shortcut.svelte
+````
 <script lang="ts">
 	import type { WithElementRef } from "bits-ui";
 	import type { HTMLAttributes } from "svelte/elements";
@@ -740,9 +4232,10 @@ export {
 >
 	{@render children?.()}
 </span>
-</file>
+````
 
-<file path="lib/components/ui/command/command.svelte">
+## File: src/lib/components/ui/command/command.svelte
+````
 <script lang="ts">
 	import { Command as CommandPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -764,9 +4257,10 @@ export {
 	bind:ref
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/command/index.ts">
+## File: src/lib/components/ui/command/index.ts
+````typescript
 import { Command as CommandPrimitive } from "bits-ui";
 
 import Root from "./command.svelte";
@@ -807,9 +4301,10 @@ export {
 	Shortcut as CommandShortcut,
 	Loading as CommandLoading,
 };
-</file>
+````
 
-<file path="lib/components/ui/dialog/dialog-content.svelte">
+## File: src/lib/components/ui/dialog/dialog-content.svelte
+````
 <script lang="ts">
 	import { Dialog as DialogPrimitive, type WithoutChildrenOrChild } from "bits-ui";
 	import X from "lucide-svelte/icons/x";
@@ -848,9 +4343,10 @@ export {
 		</DialogPrimitive.Close>
 	</DialogPrimitive.Content>
 </Dialog.Portal>
-</file>
+````
 
-<file path="lib/components/ui/dialog/dialog-description.svelte">
+## File: src/lib/components/ui/dialog/dialog-description.svelte
+````
 <script lang="ts">
 	import { Dialog as DialogPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -867,9 +4363,10 @@ export {
 	class={cn("text-muted-foreground text-sm", className)}
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/dialog/dialog-footer.svelte">
+## File: src/lib/components/ui/dialog/dialog-footer.svelte
+````
 <script lang="ts">
 	import type { WithElementRef } from "bits-ui";
 	import type { HTMLAttributes } from "svelte/elements";
@@ -890,9 +4387,10 @@ export {
 >
 	{@render children?.()}
 </div>
-</file>
+````
 
-<file path="lib/components/ui/dialog/dialog-header.svelte">
+## File: src/lib/components/ui/dialog/dialog-header.svelte
+````
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { WithElementRef } from "bits-ui";
@@ -913,9 +4411,10 @@ export {
 >
 	{@render children?.()}
 </div>
-</file>
+````
 
-<file path="lib/components/ui/dialog/dialog-overlay.svelte">
+## File: src/lib/components/ui/dialog/dialog-overlay.svelte
+````
 <script lang="ts">
 	import { Dialog as DialogPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -935,9 +4434,10 @@ export {
 	)}
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/dialog/dialog-title.svelte">
+## File: src/lib/components/ui/dialog/dialog-title.svelte
+````
 <script lang="ts">
 	import { Dialog as DialogPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -954,9 +4454,10 @@ export {
 	class={cn("text-lg font-semibold leading-none tracking-tight", className)}
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/dialog/index.ts">
+## File: src/lib/components/ui/dialog/index.ts
+````typescript
 import { Dialog as DialogPrimitive } from "bits-ui";
 
 import Title from "./dialog-title.svelte";
@@ -994,9 +4495,10 @@ export {
 	Description as DialogDescription,
 	Close as DialogClose,
 };
-</file>
+````
 
-<file path="lib/components/ui/input/index.ts">
+## File: src/lib/components/ui/input/index.ts
+````typescript
 import Root from "./input.svelte";
 
 export {
@@ -1004,9 +4506,10 @@ export {
 	//
 	Root as Input,
 };
-</file>
+````
 
-<file path="lib/components/ui/input/input.svelte">
+## File: src/lib/components/ui/input/input.svelte
+````
 <script lang="ts">
 	import type { HTMLInputAttributes, HTMLInputTypeAttribute } from "svelte/elements";
 	import type { WithElementRef } from "bits-ui";
@@ -1053,9 +4556,10 @@ export {
 		{...restProps}
 	/>
 {/if}
-</file>
+````
 
-<file path="lib/components/ui/label/index.ts">
+## File: src/lib/components/ui/label/index.ts
+````typescript
 import Root from "./label.svelte";
 
 export {
@@ -1063,9 +4567,10 @@ export {
 	//
 	Root as Label,
 };
-</file>
+````
 
-<file path="lib/components/ui/label/label.svelte">
+## File: src/lib/components/ui/label/label.svelte
+````
 <script lang="ts">
 	import { Label as LabelPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -1085,9 +4590,10 @@ export {
 	)}
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/popover/index.ts">
+## File: src/lib/components/ui/popover/index.ts
+````typescript
 import { Popover as PopoverPrimitive } from "bits-ui";
 import Content from "./popover-content.svelte";
 const Root = PopoverPrimitive.Root;
@@ -1105,9 +4611,10 @@ export {
 	Trigger as PopoverTrigger,
 	Close as PopoverClose,
 };
-</file>
+````
 
-<file path="lib/components/ui/popover/popover-content.svelte">
+## File: src/lib/components/ui/popover/popover-content.svelte
+````
 <script lang="ts">
 	import { cn } from "$lib/utils.js";
 	import { Popover as PopoverPrimitive } from "bits-ui";
@@ -1136,9 +4643,10 @@ export {
 		{...restProps}
 	/>
 </PopoverPrimitive.Portal>
-</file>
+````
 
-<file path="lib/components/ui/progress/index.ts">
+## File: src/lib/components/ui/progress/index.ts
+````typescript
 import Root from "./progress.svelte";
 
 export {
@@ -1146,9 +4654,10 @@ export {
 	//
 	Root as Progress,
 };
-</file>
+````
 
-<file path="lib/components/ui/progress/progress.svelte">
+## File: src/lib/components/ui/progress/progress.svelte
+````
 <script lang="ts">
 	import { Progress as ProgressPrimitive, type WithoutChildrenOrChild } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -1174,9 +4683,10 @@ export {
 		style={`transform: translateX(-${100 - (100 * (value ?? 0)) / (max ?? 1)}%)`}
 	></div>
 </ProgressPrimitive.Root>
-</file>
+````
 
-<file path="lib/components/ui/radio-group/index.ts">
+## File: src/lib/components/ui/radio-group/index.ts
+````typescript
 import Root from "./radio-group.svelte";
 import Item from "./radio-group-item.svelte";
 
@@ -1187,9 +4697,10 @@ export {
 	Root as RadioGroup,
 	Item as RadioGroupItem,
 };
-</file>
+````
 
-<file path="lib/components/ui/radio-group/radio-group-item.svelte">
+## File: src/lib/components/ui/radio-group/radio-group-item.svelte
+````
 <script lang="ts">
 	import { RadioGroup as RadioGroupPrimitive, type WithoutChildrenOrChild } from "bits-ui";
 	import Circle from "lucide-svelte/icons/circle";
@@ -1218,9 +4729,10 @@ export {
 		</div>
 	{/snippet}
 </RadioGroupPrimitive.Item>
-</file>
+````
 
-<file path="lib/components/ui/radio-group/radio-group.svelte">
+## File: src/lib/components/ui/radio-group/radio-group.svelte
+````
 <script lang="ts">
 	import { RadioGroup as RadioGroupPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -1234,9 +4746,10 @@ export {
 </script>
 
 <RadioGroupPrimitive.Root bind:ref bind:value class={cn("grid gap-2", className)} {...restProps} />
-</file>
+````
 
-<file path="lib/components/ui/select/index.ts">
+## File: src/lib/components/ui/select/index.ts
+````typescript
 import { Select as SelectPrimitive } from "bits-ui";
 
 import GroupHeading from "./select-group-heading.svelte";
@@ -1271,9 +4784,10 @@ export {
 	ScrollDownButton as SelectScrollDownButton,
 	ScrollUpButton as SelectScrollUpButton,
 };
-</file>
+````
 
-<file path="lib/components/ui/select/select-content.svelte">
+## File: src/lib/components/ui/select/select-content.svelte
+````
 <script lang="ts">
 	import { Select as SelectPrimitive, type WithoutChild } from "bits-ui";
 	import SelectScrollUpButton from "./select-scroll-up-button.svelte";
@@ -1313,9 +4827,10 @@ export {
 		<SelectScrollDownButton />
 	</SelectPrimitive.Content>
 </SelectPrimitive.Portal>
-</file>
+````
 
-<file path="lib/components/ui/select/select-group-heading.svelte">
+## File: src/lib/components/ui/select/select-group-heading.svelte
+````
 <script lang="ts">
 	import { Select as SelectPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -1332,9 +4847,10 @@ export {
 	class={cn("py-1.5 pl-8 pr-2 text-sm font-semibold", className)}
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/select/select-item.svelte">
+## File: src/lib/components/ui/select/select-item.svelte
+````
 <script lang="ts">
 	import Check from "lucide-svelte/icons/check";
 	import { Select as SelectPrimitive, type WithoutChild } from "bits-ui";
@@ -1372,9 +4888,10 @@ export {
 		{/if}
 	{/snippet}
 </SelectPrimitive.Item>
-</file>
+````
 
-<file path="lib/components/ui/select/select-scroll-down-button.svelte">
+## File: src/lib/components/ui/select/select-scroll-down-button.svelte
+````
 <script lang="ts">
 	import ChevronDown from "lucide-svelte/icons/chevron-down";
 	import { Select as SelectPrimitive, type WithoutChildrenOrChild } from "bits-ui";
@@ -1394,9 +4911,10 @@ export {
 >
 	<ChevronDown class="size-4" />
 </SelectPrimitive.ScrollDownButton>
-</file>
+````
 
-<file path="lib/components/ui/select/select-scroll-up-button.svelte">
+## File: src/lib/components/ui/select/select-scroll-up-button.svelte
+````
 <script lang="ts">
 	import ChevronUp from "lucide-svelte/icons/chevron-up";
 	import { Select as SelectPrimitive, type WithoutChildrenOrChild } from "bits-ui";
@@ -1416,9 +4934,10 @@ export {
 >
 	<ChevronUp class="size-4" />
 </SelectPrimitive.ScrollUpButton>
-</file>
+````
 
-<file path="lib/components/ui/select/select-separator.svelte">
+## File: src/lib/components/ui/select/select-separator.svelte
+````
 <script lang="ts">
 	import type { Separator as SeparatorPrimitive } from "bits-ui";
 	import { Separator } from "$lib/components/ui/separator/index.js";
@@ -1432,9 +4951,10 @@ export {
 </script>
 
 <Separator bind:ref class={cn("bg-muted -mx-1 my-1 h-px", className)} {...restProps} />
-</file>
+````
 
-<file path="lib/components/ui/select/select-trigger.svelte">
+## File: src/lib/components/ui/select/select-trigger.svelte
+````
 <script lang="ts">
 	import { Select as SelectPrimitive, type WithoutChild } from "bits-ui";
 	import ChevronDown from "lucide-svelte/icons/chevron-down";
@@ -1459,9 +4979,10 @@ export {
 	{@render children?.()}
 	<ChevronDown class="size-4 opacity-50" />
 </SelectPrimitive.Trigger>
-</file>
+````
 
-<file path="lib/components/ui/separator/index.ts">
+## File: src/lib/components/ui/separator/index.ts
+````typescript
 import Root from "./separator.svelte";
 
 export {
@@ -1469,9 +4990,10 @@ export {
 	//
 	Root as Separator,
 };
-</file>
+````
 
-<file path="lib/components/ui/separator/separator.svelte">
+## File: src/lib/components/ui/separator/separator.svelte
+````
 <script lang="ts">
 	import { Separator as SeparatorPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
@@ -1494,9 +5016,10 @@ export {
 	{orientation}
 	{...restProps}
 />
-</file>
+````
 
-<file path="lib/components/ui/skeleton/index.ts">
+## File: src/lib/components/ui/skeleton/index.ts
+````typescript
 import Root from "./skeleton.svelte";
 
 export {
@@ -1504,9 +5027,10 @@ export {
 	//
 	Root as Skeleton,
 };
-</file>
+````
 
-<file path="lib/components/ui/skeleton/skeleton.svelte">
+## File: src/lib/components/ui/skeleton/skeleton.svelte
+````
 <script lang="ts">
 	import type { WithElementRef, WithoutChildren } from "bits-ui";
 	import type { HTMLAttributes } from "svelte/elements";
@@ -1524,9 +5048,10 @@ export {
 	class={cn("bg-muted animate-pulse rounded-md", className)}
 	{...restProps}
 ></div>
-</file>
+````
 
-<file path="lib/components/ui/textarea/index.ts">
+## File: src/lib/components/ui/textarea/index.ts
+````typescript
 import Root from "./textarea.svelte";
 
 type FormTextareaEvent<T extends Event = Event> = T & {
@@ -1555,9 +5080,10 @@ export {
 	type TextareaEvents,
 	type FormTextareaEvent,
 };
-</file>
+````
 
-<file path="lib/components/ui/textarea/textarea.svelte">
+## File: src/lib/components/ui/textarea/textarea.svelte
+````
 <script lang="ts">
 	import type { WithElementRef, WithoutChildren } from "bits-ui";
 	import type { HTMLTextareaAttributes } from "svelte/elements";
@@ -1580,9 +5106,10 @@ export {
 	bind:value
 	{...restProps}
 ></textarea>
-</file>
+````
 
-<file path="lib/mycomps/Combobox.svelte">
+## File: src/lib/mycomps/Combobox.svelte
+````
 <script lang="ts">
   import Check from "lucide-svelte/icons/check";
   import ChevronsUpDown from "lucide-svelte/icons/chevrons-up-down";
@@ -1697,9 +5224,10 @@ export {
     </Command.Root>
   </Popover.Content>
 </Popover.Root>
-</file>
+````
 
-<file path="lib/mycomps/Question.svelte">
+## File: src/lib/mycomps/Question.svelte
+````
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { Card } from "$lib/components/ui/card";
@@ -1905,9 +5433,10 @@ export {
     </Button>
   </Card>
 {/snippet}
-</file>
+````
 
-<file path="lib/api.ts">
+## File: src/lib/api.ts
+````typescript
 import type { Course, EduFocus, TopicData } from "../types.d.ts";
 import { mockCourses, mockMatricExams, mockQuizQuestions } from "./mock";
 export async function reportFeedback(feedback: string): Promise<void> {
@@ -2047,9 +5576,10 @@ export async function getMatricExams() {
   await new Promise((resolve) => setTimeout(resolve, 300));
   return { data: mockMatricExams };
 }
-</file>
+````
 
-<file path="lib/mock.ts">
+## File: src/lib/mock.ts
+````typescript
 import logicOutline from "../../modules/freshman/logic/outline.json";
 import courses from "../../modules/courses.json";
 import type { MatricExam, ExitExam } from "src/types";
@@ -3346,9 +6876,10 @@ export const mockQuizQuestions = [
   //   </div>`,
   // },
 ];
-</file>
+````
 
-<file path="lib/myutils.ts">
+## File: src/lib/myutils.ts
+````typescript
 import type { Chapter, Topic } from "../types.d.ts";
 
 export function navigateToLink(url: string): void {
@@ -3420,9 +6951,10 @@ export function generateId(): string {
     Math.random().toString(36).substring(2, 15)
   );
 }
-</file>
+````
 
-<file path="lib/state.svelte.ts">
+## File: src/lib/state.svelte.ts
+````typescript
 import type {
   Course,
   ExitExam,
@@ -3584,18 +7116,20 @@ if (isBrowser) {
 } else {
   console.log("no permstae");
 }
-</file>
+````
 
-<file path="lib/utils.ts">
+## File: src/lib/utils.ts
+````typescript
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
-</file>
+````
 
-<file path="routes/Course.svelte">
+## File: src/routes/Course.svelte
+````
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { ArrowLeft, BookOpen, Play, ChevronDown } from "lucide-svelte";
@@ -3790,9 +7324,10 @@ export function cn(...inputs: ClassValue[]) {
     {/if}
   </div>
 </div>
-</file>
+````
 
-<file path="routes/Exitexam.svelte">
+## File: src/routes/Exitexam.svelte
+````
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { ArrowLeft, BookOpen, Play } from "lucide-svelte";
@@ -3952,9 +7487,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/Home.svelte">
+## File: src/routes/Home.svelte
+````
 <script lang="ts">
   import { Card, CardContent } from "../lib/components/ui/card";
   import { Button } from "../lib/components/ui/button";
@@ -4268,9 +7804,10 @@ export function cn(...inputs: ClassValue[]) {
     </DialogFooter>
   </DialogContent>
 </Dialog>
-</file>
+````
 
-<file path="routes/IntroFour.svelte">
+## File: src/routes/IntroFour.svelte
+````
 <script>
   import {
     Card,
@@ -4399,9 +7936,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/IntroOne.svelte">
+## File: src/routes/IntroOne.svelte
+````
 <script lang="ts">
   import * as Card from "$lib/components/ui/card";
   import { GraduationCap, Building, Landmark } from "lucide-svelte";
@@ -4464,9 +8002,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/IntroThree.svelte">
+## File: src/routes/IntroThree.svelte
+````
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { Input } from "$lib/components/ui/input";
@@ -4590,9 +8129,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/IntroTwo.svelte">
+## File: src/routes/IntroTwo.svelte
+````
 <script lang="ts">
   import * as Card from "$lib/components/ui/card";
   import { Button } from "$lib/components/ui/button";
@@ -4732,9 +8272,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/MainScreen.svelte">
+## File: src/routes/MainScreen.svelte
+````
 <script lang="ts">
   import { blur } from "svelte/transition";
   import { quintOut } from "svelte/easing";
@@ -4807,9 +8348,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/Matric.svelte">
+## File: src/routes/Matric.svelte
+````
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { ArrowLeft, BookOpen, Loader2, Play } from "lucide-svelte";
@@ -5016,9 +8558,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/MatricSubjects.svelte">
+## File: src/routes/MatricSubjects.svelte
+````
 <script lang="ts">
   import {
     ArrowLeft,
@@ -5184,9 +8727,10 @@ export function cn(...inputs: ClassValue[]) {
     {/if}
   </div>
 </div>
-</file>
+````
 
-<file path="routes/Module.svelte">
+## File: src/routes/Module.svelte
+````
 <script lang="ts">
   import { onMount } from "svelte";
   import { ArrowLeft } from "lucide-svelte";
@@ -5234,9 +8778,10 @@ export function cn(...inputs: ClassValue[]) {
     {/if}
   </div>
 </main>
-</file>
+````
 
-<file path="routes/News.svelte">
+## File: src/routes/News.svelte
+````
 <script>
   import {
     Card,
@@ -5319,9 +8864,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div> -->
 </div>
-</file>
+````
 
-<file path="routes/PastExams.svelte">
+## File: src/routes/PastExams.svelte
+````
 <script lang="ts">
   import { ArrowLeft } from "lucide-svelte";
   import { onMount } from "svelte";
@@ -5566,9 +9112,10 @@ export function cn(...inputs: ClassValue[]) {
     {/if}
   </div>
 </div>
-</file>
+````
 
-<file path="routes/PostQuiz.svelte">
+## File: src/routes/PostQuiz.svelte
+````
 <script lang="ts">
   import {
     X,
@@ -5733,9 +9280,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/QuestType.svelte">
+## File: src/routes/QuestType.svelte
+````
 <script lang="ts">
   import { Checkbox } from "$lib/components/ui/checkbox";
   import { Button } from "$lib/components/ui/button";
@@ -5833,9 +9381,10 @@ export function cn(...inputs: ClassValue[]) {
     {/if}
   </Button>
 </div>
-</file>
+````
 
-<file path="routes/Quiz.svelte">
+## File: src/routes/Quiz.svelte
+````
 <script lang="ts">
   import { push } from "svelte-spa-router";
   import { onMount } from "svelte";
@@ -6135,9 +9684,10 @@ export function cn(...inputs: ClassValue[]) {
     totalQuestions={tempstate.quiz.questions.length}
   />
 {/if}
-</file>
+````
 
-<file path="routes/Report.svelte">
+## File: src/routes/Report.svelte
+````
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { Textarea } from "$lib/components/ui/textarea";
@@ -6226,9 +9776,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/SearchCourse.svelte">
+## File: src/routes/SearchCourse.svelte
+````
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { Card, CardContent } from "$lib/components/ui/card";
@@ -6330,9 +9881,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/SelectCourses.svelte">
+## File: src/routes/SelectCourses.svelte
+````
 <script lang="ts">
   import { Checkbox } from "$lib/components/ui/checkbox";
   import { Button } from "$lib/components/ui/button";
@@ -6483,9 +10035,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   {/if}
 </div>
-</file>
+````
 
-<file path="routes/SelectTopics.svelte">
+## File: src/routes/SelectTopics.svelte
+````
 <script lang="ts">
   import { Checkbox } from "$lib/components/ui/checkbox";
   import { Button } from "$lib/components/ui/button";
@@ -6730,9 +10283,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   {/if}
 </div>
-</file>
+````
 
-<file path="routes/Settings.svelte">
+## File: src/routes/Settings.svelte
+````
 <script lang="ts">
   import { Card } from "$lib/components/ui/card";
   import Combobox from "$lib/mycomps/Combobox.svelte";
@@ -6924,9 +10478,10 @@ export function cn(...inputs: ClassValue[]) {
     </Card>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/StudyPlan.svelte">
+## File: src/routes/StudyPlan.svelte
+````
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { onMount } from "svelte";
@@ -7362,9 +10917,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/Topic.old.svelte">
+## File: src/routes/Topic.old.svelte
+````
 <script lang="ts">
   import { getTopicData } from "$lib/api";
   import { Button } from "$lib/components/ui/button";
@@ -7651,9 +11207,10 @@ export function cn(...inputs: ClassValue[]) {
     </div>
   </div>
 </div>
-</file>
+````
 
-<file path="routes/Topic.svelte">
+## File: src/routes/Topic.svelte
+````
 <script lang="ts">
   import { getTopicData } from "$lib/api";
   import { Button } from "$lib/components/ui/button";
@@ -8085,9 +11642,10 @@ export function cn(...inputs: ClassValue[]) {
     {/if}
   </div>
 </div>
-</file>
+````
 
-<file path="app.css">
+## File: src/app.css
+````css
 :root {
   font-family: "Inter", sans-serif;
 }
@@ -8174,9 +11732,10 @@ body {
     @apply bg-background text-foreground;
   }
 }
-</file>
+````
 
-<file path="App.svelte">
+## File: src/App.svelte
+````
 <script>
   import { Toaster } from "svelte-sonner";
   import Router from "svelte-spa-router";
@@ -8232,9 +11791,10 @@ body {
 
 <Toaster theme="dark" />
 <Router {routes} />
-</file>
+````
 
-<file path="config.ts">
+## File: src/config.ts
+````typescript
 export const years = [
   { value: "1", label: "1st year (Freshman)" },
   { value: "2", label: "2nd year" },
@@ -8265,9 +11825,10 @@ export const fields = [
   { value: "bus", label: "Business" },
   { value: "psych", label: "Psychology" },
 ];
-</file>
+````
 
-<file path="main.ts">
+## File: src/main.ts
+````typescript
 import { mount } from "svelte";
 import "@fontsource/inter";
 import "@fontsource/inter/700.css";
@@ -8279,9 +11840,10 @@ const app = mount(App, {
 });
 
 export default app;
-</file>
+````
 
-<file path="types.d.ts">
+## File: src/types.d.ts
+````typescript
 export type EduFocus = "highschool" | "undergrad" | "exitexam";
 
 export interface UserReport {
@@ -8431,11 +11993,894 @@ export interface TopicData {
   nextTopic?: { title: string; filename: string };
   prevTopic?: { title: string; filename: string };
 }
-</file>
+````
 
-<file path="vite-env.d.ts">
+## File: src/vite-env.d.ts
+````typescript
 /// <reference types="svelte" />
 /// <reference types="vite/client" />
-</file>
+````
 
-</files>
+## File: .gitignore
+````
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+modules
+docs
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+````
+
+## File: components.json
+````json
+{
+	"$schema": "https://next.shadcn-svelte.com/schema.json",
+	"style": "default",
+	"tailwind": {
+		"config": "tailwind.config.ts",
+		"css": "src/app.css",
+		"baseColor": "slate"
+	},
+	"aliases": {
+		"components": "$lib/components",
+		"utils": "$lib/utils",
+		"ui": "$lib/components/ui",
+		"hooks": "$lib/hooks"
+	},
+	"typescript": true,
+	"registry": "https://next.shadcn-svelte.com/registry"
+}
+````
+
+## File: eslint.config.js
+````javascript
+// eslint.config.js
+import js from "@eslint/js";
+import svelte from "eslint-plugin-svelte";
+import globals from "globals";
+import ts from "typescript-eslint";
+import svelteConfig from "./svelte.config.js";
+
+export default ts.config(
+  js.configs.recommended,
+  ...ts.configs.recommended,
+  ...svelte.configs.recommended,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+  },
+  {
+    files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
+    // See more details at: https://typescript-eslint.io/packages/parser/
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        extraFileExtensions: [".svelte"], // Add support for additional file extensions, such as .svelte
+        parser: ts.parser,
+        // Specify a parser for each language, if needed:
+        // parser: {
+        //   ts: ts.parser,
+        //   js: espree,    // Use espree for .js files (add: import espree from 'espree')
+        //   typescript: ts.parser
+        // },
+
+        // We recommend importing and specifying svelte.config.js.
+        // By doing so, some rules in eslint-plugin-svelte will automatically read the configuration and adjust their behavior accordingly.
+        // While certain Svelte settings may be statically loaded from svelte.config.js even if you don’t specify it,
+        // explicitly specifying it ensures better compatibility and functionality.
+        svelteConfig,
+      },
+    },
+  },
+  {
+    rules: {
+      // Override or add rule settings here, such as:
+      // 'svelte/rule-name': 'error'
+      "svelte/no-at-html-tags": "off",
+    },
+  },
+);
+````
+
+## File: index.html
+````html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gebi App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+````
+
+## File: mynotes.md
+````markdown
+googleaistudeokey = AIzaSyB8PHWafA078UG1aq4JvSI7-afiIT7Io2M
+geminiaistudeokeyhana = AIzaSyAnC3ptwWNPzlpnzATVsKNC-sFpo0FMtSk
+
+# when writing documents; make sure to do an intro for each Section object;
+# dont forget to check for filename duplicates in the outline;
+# dont ever make the student feel stupid, tnsh echin kanebebsh beka pis nw; esti let's try this one
+# dont forget a reporting mechanism
+# you should think of exam multipiers
+
+# these are some contents that can be omitted in the outline so look out when creating the file output;
+Content to Consider Omitting:
+1. Review questions/summaries at chapter ends
+2. Self-assessment quizzes
+3. Learning objectives listings
+4. Glossary sections
+5. References/bibliography sections
+6. Historical sidebars/boxes
+7. "Further Reading" sections
+8. Online resource links
+9. Appendices with supplementary material
+10. "For Advanced Readers" sections
+
+# metadatas
+-difficulty from 1 through 10
+-estimated duration in minutes
+-prerequisites
+-bloomsLevel: [remember, understand, apply, analyze, evaluate, create] - [memorize, conceptual, steps, logic, analysis, create],
+-flexibility: [must-read, essential, optional]
+
+
+please clearly isolate responsiblities in system and user prompt, giving more context in the user prompt, and for your questions:
+the prerequisites array should be small in number, and there is no need to validate at this state, just prompt it to only focus on metadata generation while not fucking up the existing structure
+
+I am building an agent to convert a textbook PDF to a highly segmented html files based on topics;
+the first step is to change the PDF to a big html file with zero styling then to strip every tag except image tags to preserve image info
+the reason for i did not just convert it to text file and feed it into the LLM is because i wanted to link the images
+then after that is to get an outline from the LLM based on the file, after that recursively going to each topic in it to create an html file with images in the input file
+can you write a prompt for me to do the final step; i am expecting an output of something like;
+<script type="application/ld+json">{{metadata about topic}}</script>
+{{the rest of html content}
+
+the meta data is these infos
+- **Difficulty (1-10):** Evaluate based on content complexity relative to the overall course.
+- **Duration:** Estimate the reading/understanding time in minutes, considering content length and complexity.
+- **BloomsLevels:** Determine one or more applicable levels from: [memorize, conceptual, steps, logic, analysis, create]. Always output these as an array.
+- **Flexibility:** Categorize the topic’s importance as one of: [must-read, essential, optional].
+before writing the prompt do you have questions for me
+
+It took me a long time to work out why it had been so easy and why this
+time I hadn’t suffered those terrifying withdrawal pangs. The reason is that
+they do not exist. It is the doubt and uncertainty that cause the pangs. The
+beautiful truth is: IT IS EASY TO STOP SMOKING. It is only the
+indecision and moping about it that make it difficult. Even while they are
+addicted to nicotine, smokers can go for relatively long periods at certain
+times in their lives without bothering about it. It is only when you want a
+cigarette but can’t have one that you suffer.
+
+-<p>, <div>, and <span> with optionally these class names: "definition", "example", "note (for tips, warnings, importants)"
+-class: "math" <div> and <span> for math
+-<h1>, <h2>, <h3> for heading and <p> for paragraphes
+-<ul>, <ol>, <li>
+-<pre><code></code></pre> for code to be highlighted by highlight.js
+-<blockquote> for important quotes or callouts
+-<strong>, <em>, <u> tag for styling
+-<table>, <th>, <tr>, <td> - For tabular data
+
+# image to exams convertor
+i am trying to plan an agent that will input images of past exams, and will output structured data of the questions;
+the outputs i was thinking are questions, answer with explanation or steps (be extensive if you have to), hint, and metadata about difficulty, questiontype and even the topic;
+what else should i consider outputting? please answer briefly
+
+i am trying to plan an agent that will input images of past exams, and will output structured data of the questions;
+what i have in mind is something like an HTML that uses KaTeX for math and highlight.js for code;
+
+# course folder structure
+
+## INPUT:
+dept1.pdf
+dept2.pdf
+
+## OUTPUT:
+dept/
+  coursename/
+    topic1.html
+    topic2.html
+    img1.jpg
+    img2.jpg
+    progress.json
+    coursename.ot.json
+
+### For Mid/Final contents
+## INPUT:
+dept/
+  bmu-10988537395/
+    img1.jpg
+    img2.jpg
+    img3.jpg
+  bmu-10938287493/
+    img1.jpg
+    img2.jpg
+    img3.jpg
+
+## OUTPUT:
+dept/
+  bmu-10988537395/
+    exams.html
+    img1.jpg
+    img2.jpg
+    img3.jpg
+  bmu-10938287493/
+    exams.html
+    img1.jpg
+    img2.jpg
+    img3.jpg
+
+### For Exit Exam contents
+## INPUT:
+model1/
+  img1.png
+  img2.png
+model2/
+  raw.html
+  raw-clean.txt
+
+## OUTPUT:
+model1/
+  exams.html
+  img1.png
+  img2.png
+model2/
+  exams.html
+  raw.html
+  raw-clean.txt
+
+
+create a prompt for an agent that extrats exams from a bunch of images taken from past exams;
+these images may be incomplete or blurry, or they might have incomplete questions; for that just inform
+the model through the prompt to fill the missing parts of question by itself, and with the image the model will be given an outline JSON
+of the course topics from which those questions have been extracted; therefore the model will output metadata about each question;
+i expect an output something like
+<script id="course-metadata" type="application/ld+json">
+{ ...metadata JSON...; which includes hint, topic, difficulty (1 through 10), questionType }
+</script>
+<div id="question-1">
+  <div class="question"> </div>
+  <div class="options"> {{ which can be ABCD choices or True or False} </div>
+  <div class="solution"> </div>
+</div>
+
+update on the output structure: the output should be like:
+<script id="metadata-1" type="application/ld+json">
+{{ ...metadata JSON...}
+</script>
+<div id="question-1">
+{{... question content here ...}
+</div>
+
+also the hint should be in the question tag like: <div class="hint"></div>
+
+## img to exam prompt
+
+You are an expert exam question analyzer and reconstructor. Your task is to process images of exam questions, analyze them, and output structured questions with metadata. You must work with the provided course outline JSON to properly categorize questions.
+
+COURSE OUTLINE:
+[COURSE_OUTLINE_JSON_PLACEHOLDER]
+
+CORE RESPONSIBILITIES:
+1. Process exam question images (single or multiple questions per image)
+2. Reconstruct unclear/incomplete questions while maintaining topic relevance
+3. Generate structured output with metadata and content
+4. Convert questions to supported formats (multiple-choice, true/false, workout/short answer)
+5. Map questions to course topics
+
+OUTPUT STRUCTURE:
+For each question, generate:
+
+1. Metadata script:
+<script id="metadata-{n}" type="application/ld+json">
+{
+    "id": "string",
+    "topics": ["filename1", "filename2"],
+    "difficulty": number(1-10),
+    "questionType": "multiple-choice" | "true-false" | "workout",
+    "originType": "real" | "reconst",
+    "imageRefs": ["img1.jpg"], // if needed
+    "confidence": number(1-10),
+    "confidenceRemark": "string",
+    "correctAnswer": "A"|"B"|"C"|"D"|"E"|"True"|"False"|null
+}
+</script>
+
+2. Question content:
+<div id="question-{n}">
+    <div class="question-text">...</div>
+    <div class="hint">...</div>
+    <div class="options">...</div> // if applicable
+    <div class="solution">...</div>
+</div>
+
+RULES AND GUIDELINES:
+
+1. Question Processing:
+- Mark as "real" only if question is completely clear and readable
+- Mark as "reconst" if ANY part needs reconstruction
+- Maintain topic relevance when reconstructing
+- Preserve original difficulty level when determinable
+- Convert matching/fill-in-blank to multiple-choice
+
+2. Topic Mapping:
+- Map to ALL relevant topics from course outline
+- Use topic filenames in metadata
+- Include confidence remark if topic mapping is uncertain
+
+3. Content Formatting: ALLOWED HTML ELEMENTS AND USAGE
+
+  Heading Structure:
+  <h1> - Main topic title only
+  <h2> - Major section divisions
+  <h3> - Subsection headings
+  Maintain strict hierarchy; no skipping levels
+
+  Content Containers:
+  <p> - Standard paragraphs
+  <div> and <span> with classes:
+  - class="definition" - Formal term definitions
+  - class="example" - Illustrative examples
+  - class="note" - Tips, important points, warnings
+
+  Mathematical Content:
+  <span class="math-inline"> - For inline mathematics
+  <div class="math-display"> - For displayed equations
+  [Use combination of LaTeX and unicode; ensure proper delimiters]
+
+  Code Sections:
+  <pre><code class="language-[name]"> - For code snippets
+  [Always specify language; ensure proper formatting]
+
+  List Structures:
+  <ul> - Unordered lists (concepts, points)
+  <ol> - Ordered lists (steps, procedures)
+  <li> - List items
+  [Maintain proper nesting for complex multi-level lists; use appropriate type]
+
+  Text Emphasis:
+  <strong> - Critical emphasis
+  <em> - Secondary emphasis
+  <u> - Underlining
+  [Use sparingly and meaningfully]
+
+  Special Elements:
+  <blockquote> - Significant quotes or key points
+  <table>, <th>, <tr>, <td> - Tabular data
+  <hr> - Major section breaks
+
+4. Mathematical Content:
+- Use KaTeX for mathematical expressions
+- Use appropriate math-inline or math-display classes
+- Combine with Unicode where appropriate
+
+5. Image References:
+- Include imageRefs if diagrams/tables are essential
+- Reference images sequentially (img1.jpg, img2.jpg, etc.)
+- Reconstruct tables in HTML when possible
+
+EXAMPLES:
+
+1. Clear Multiple Choice Question:
+[Example image of a clear question about DFS algorithm]
+
+<script id="metadata-1" type="application/ld+json">
+{
+    "id": "1",
+    "topics": ["dfs", "problem-solving-search"],
+    "difficulty": 7,
+    "questionType": "multiple-choice",
+    "originType": "real",
+    "imageRefs": [],
+    "confidence": 9,
+    "confidenceRemark": "Clear question with direct topic mapping",
+    "correctAnswer": "B"
+}
+</script>
+<div id="question-1">
+    <div class="question-text">
+        Consider the following graph traversal using DFS:
+        <div class="math-display">
+            [Graph representation in KaTeX]
+        </div>
+        What is the correct sequence of visited nodes?
+    </div>
+    <div class="hint">
+        Remember that DFS explores as far as possible along each branch before backtracking.
+    </div>
+    <div class="options">
+        <div class="option" data-option="A">1-2-4-3-5</div>
+        <div class="option" data-option="B">1-2-3-4-5</div>
+        <div class="option" data-option="C">1-3-2-4-5</div>
+        <div class="option" data-option="D">1-2-3-5-4</div>
+    </div>
+    <div class="solution">
+        <p>The correct answer is B (1-2-3-4-5). Here's why:</p>
+        <ol>
+            <li>Starting at node 1</li>
+            <li>Following DFS principle, we go deep through the leftmost path first</li>
+            <li>This leads us to sequence 1-2-3</li>
+            <li>After backtracking, we visit 4 and finally 5</li>
+        </ol>
+        <p>Alternative approach: You could also verify this by drawing the DFS tree.</p>
+    </div>
+</div>
+
+VALIDATION REQUIREMENTS:
+1. Ensure correctAnswer matches available options
+2. Verify topic filenames exist in course outline
+3. Confirm difficulty and confidence are 1-10
+4. Validate HTML structure matches allowed elements
+5. Verify image references when needed
+6. Ensure mathematical expressions are properly formatted
+
+When processing new questions:
+1. Analyze the image thoroughly
+2. Determine question type and reconstruction needs
+3. Map to course topics
+4. Generate structured output
+5. Include detailed solutions with explanations
+6. Provide helpful hints
+7. Validate all metadata and content
+
+Process the exam questions and output structured data according to these specifications.
+
+
+getUnprocessedExamFolders(courseRoot)
+readAndCleanOutline(courseRoot)
+getImgsForFolder(folderName) -- accepts only the folderName from output of getUnprocessedExamFolders and then returns the an array of { inlineData: { data: buffer, mimeType }} for Gemini to process
+createExams(cleanOutline, imgList) -- inputs from above two functions then gives it to callGemini function and then outputs the HTML content
+writeExam(courseRoot, folderName, htmlContent) -- writes the output to exams.html under folderName under exams folder of the courseRoot folder
+
+# a letter
+eshi with tips, because i care for you should read this hawisha, lidu endatsasachibegn echin echin ewekilign;
+asayegn ena fetnegn estiii eya CHESSS
+( so a screen before topic course to tell me learn this and i will test you eshi hawisha,
+  also give her a question then when things look hard give her an option to learn about it,
+  also give her hints, and directions, no problem tnsh asebina... (abren enesraw?)
+)
+keza tedy endeza hone nw melesh hahaha;
+(
+  so be tedy fanta make it Kebede, Miki, Nati, or Josh or Roba (roba it is tewesnual the boys and even chikochu ywedutal eko) and Beti
+)
+so be video call asayshalew anchi demo;
+(
+  live help, hand yezo masayet
+)
+(
+  an argument against points; or no points make hawi happy it also makes lidu happy
+  but argument against streaks because no one studies every day,
+  maybe a weekend study reminder and a week streak with notifications is a good idea
+)
+(
+  also: interesting facts for Abresh in the app and the intellectuals woowwww
+  also: did you know questions before the fun facts and even between screens sometimes in the onboarding
+    and start of lesson plans and the start of quizzes
+)
+esti from start ke basicsuu from the begineerrr asrejign; endeeee hayu baby
+* i really shouldve called her lideta eyalen and take her places besmamm;
+* call her and go tmrw bezaw meseraw sera yenoral ekahen yezeh hid
+and talk business with her too;; haha enesu yetsumu egna mn ageban hahaha
+
+i am a really interesting kid gn enezan hula chikoch zm beye metewew; and that makes me ambitious
+and even more attractive to girls; and all of this is because of my mother! the love she gave me;
+the love of my mother is my power and fuel for my ambition
+
+(
+  tadya lidu mech nw menatenawww eee; slide into her DMs in the trial peroid with a personalized message on how Logic kicked her ass
+  and also my username is notrobasorry sorrynotroba
+  gn demo echin neger kakomk tetamaleh, so atakuma endewm the virality from your timely checks in nicely stolen from Duo
+)
+(
+  Robertoooo with a malia as the story of my page
+  Roba in exams and roba in answer explanations Roba in topic summarie wait...
+  Roba betam mebzat yelebatm beka
+)
+(
+  be like Dominate Nur, like That Four Juma, like those girls new jema, like Ethio Trollers, like Ela and the childhood friends
+  like Panda (consider to open a Panda branch); even document your life journey wowww, an amazing fan base and series!
+  do a build in public on tiktok be it like Dominate! even that kid Beki started it like this just to sell Minoxil
+  did you see how Minoxil have added other benefits wowwww
+  i see how computer makes my productivity 10x and how AI will make my productivity 100x when competing with iStore;
+  funny, my nemesis is iStore haha;
+)
+my goal is to make a big social experiment too, one of a kind!
+even move to Grade 12 students, and later high school for this year;
+and that video of first apply is with the tekuru susegna tiktoker
+  and those chikoch highschool jema for the matric app
+i will take over Ethiopia's education;
+i have won this system once and i will win it again in an even more marvelous way,
+i am a teacher's son right, i will make mama proud with this one!
+(
+  eee brother first apply tignalesh migerm chewe nw yeze yemetawt;
+  so the Applied form this.....
+  endeeee
+  second apply alew papi;
+  abo 3 4te apply abelugn
+  ke script atuta eshi;
+  gebi temari hono ke fresh eske exit exam wesaj yhen app endayameltwo
+)
+the fact that i care so much about this is valid because think about 1 Birr and Arada Beer;
+I will recreate that impact with this very thought about video and script and story and personalities;
+my goal is to make 10M Birr with the way 1 Birr did, we both ye lideta chulelewoch so why not
+(
+  yaw esun churche nw mimertelegn haha semteshal mommy
+)
+Also collab with Ale in the media side
+
+(
+  the amazing point i have understood today is that my market is so small and limited,
+  and not infinity
+)
+(
+  this 500 is to give all the time you have spent in Gebi worth it;
+  you have learned all these years, make all that time worth it!
+  this will carry you to the long future from grade 12 to job
+    and even abroad studies
+)
+a message to the world, i climbed in the rooftop, metbes sesh and was reading to
+  Psalms and listening to a Jazz Christian song, Jesus is a very personal God
+  tekekel neberku? no but He is my God
+    (my mother, my father, my bf, my wife, my first son; all have replacements except
+    maybe my mother and father; maybe thats a reflection of how the Creator has no replacement.
+    but God is the only God (in Orit the Dagim) and that shows how precious He is.)
+    so mnm hatiyateh kesu mehret aybeltemena mnm ke amlakeh ke Geta ayarekeh
+maybe this is a message to the world to call people into my clinic
+
+-when apps that are veryyy big and started from a niche;
+then forget their niche when they are big that is the opportunity to
+take my niche because controlling a small market is enough for you eyu
+-backgrounds blurred, faded or gradient of AAU in the onboarding!
+its nice when you invite people into your life, the ones that have seen the resistance love it so much
+
+-remember your good teachers; the ones that are passionate about their fields; be that
+
+in designing an AI study app; i am stuck at a decision;
+after quizzes students will be given an assessment on their weakness and strength based on the topics tested in the quiz; i am having troubles deciding:
+1. how to display the strength and weaknesses and the report in general
+2. if to store the assessment for future reference how would i list it, and how would things get handled when the students takes new quizzes
+before giving recommendations you are free to ask me questions
+ pleae be brief and with high word to value ratio in your responses
+````
+
+## File: package.json
+````json
+{
+  "name": "gebiapp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "lint": "eslint src",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tsconfig/svelte": "^5.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "autoprefixer": "^10.4.20",
+    "bits-ui": "^1.3.6",
+    "clsx": "^2.1.1",
+    "eslint": "^9.22.0",
+    "eslint-plugin-svelte": "^3.1.0",
+    "globals": "^16.0.0",
+    "lucide-svelte": "^0.475.0",
+    "svelte": "^5.19.6",
+    "svelte-check": "^4.1.4",
+    "tailwind-merge": "^3.0.1",
+    "tailwind-variants": "^0.3.1",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.1.0"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.1.1",
+    "@fontsource/manrope": "^5.1.1",
+    "@fontsource/nunito": "^5.1.1",
+    "@fontsource/poppins": "^5.1.1",
+    "@fontsource/space-grotesk": "^5.1.1",
+    "ky": "^1.7.5",
+    "svelte-sonner": "^0.3.28",
+    "svelte-spa-router": "^4.0.1"
+  }
+}
+````
+
+## File: postcss.config.js
+````javascript
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {}
+  }
+};
+````
+
+## File: README.md
+````markdown
+# Svelte + TS + Vite
+
+This template should help get you started developing with Svelte and TypeScript in Vite.
+
+## Recommended IDE Setup
+
+[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+
+## Need an official Svelte framework?
+
+Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+
+## Technical considerations
+
+**Why use this over SvelteKit?**
+
+- It brings its own routing solution which might not be preferable for some users.
+- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+
+This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+
+Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+
+**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+
+Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+
+**Why include `.vscode/extensions.json`?**
+
+Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+
+**Why enable `allowJs` in the TS template?**
+
+While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+
+**Why is HMR not preserving my local component state?**
+
+HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+
+If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+
+```ts
+// store.ts
+// An extremely simple external store
+import { writable } from 'svelte/store'
+export default writable(0)
+```
+````
+
+## File: svelte.config.js
+````javascript
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+
+export default {
+  // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
+  // for more information about preprocessors
+  preprocess: vitePreprocess(),
+}
+````
+
+## File: tailwind.config.ts
+````typescript
+import { fontFamily } from "tailwindcss/defaultTheme";
+import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
+
+const config: Config = {
+  darkMode: ["class"],
+  content: ["./src/**/*.{html,js,svelte,ts}"],
+  safelist: ["dark"],
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        border: "hsl(var(--border) / <alpha-value>)",
+        input: "hsl(var(--input) / <alpha-value>)",
+        ring: "hsl(var(--ring) / <alpha-value>)",
+        background: "hsl(var(--background) / <alpha-value>)",
+        foreground: "hsl(var(--foreground) / <alpha-value>)",
+        primary: {
+          // DEFAULT: "hsl(var(--primary) / <alpha-value>)",
+          DEFAULT: "#005ce6",
+          foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
+          foreground: "hsl(var(--secondary-foreground) / <alpha-value>)",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
+          foreground: "hsl(var(--destructive-foreground) / <alpha-value>)",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted) / <alpha-value>)",
+          foreground: "hsl(var(--muted-foreground) / <alpha-value>)",
+        },
+        accent: {
+          DEFAULT: "#F6FAFF",
+          foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover) / <alpha-value>)",
+          foreground: "hsl(var(--popover-foreground) / <alpha-value>)",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card) / <alpha-value>)",
+          foreground: "hsl(var(--card-foreground) / <alpha-value>)",
+        },
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
+        },
+      },
+      borderRadius: {
+        xl: "calc(var(--radius) + 4px)",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        sans: [...fontFamily.sans],
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--bits-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--bits-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "caret-blink": {
+          "0%,70%,100%": { opacity: "1" },
+          "20%,50%": { opacity: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
+      },
+    },
+  },
+  plugins: [tailwindcssAnimate],
+};
+
+export default config;
+````
+
+## File: tsconfig.app.json
+````json
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "baseUrl": ".",
+    "paths": {
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]
+}
+````
+
+## File: tsconfig.json
+````json
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "types": [],
+    "baseUrl": ".",
+    "paths": {
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
+    }
+  },
+
+  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte", "src/types.d.ts"]
+}
+````
+
+## File: tsconfig.node.json
+````json
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["vite.config.ts"]
+}
+````
+
+## File: vite.config.ts
+````typescript
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
+import path from "path";
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [svelte()],
+  resolve: {
+    alias: {
+      $lib: path.resolve("./src/lib"),
+    },
+  },
+});
+````

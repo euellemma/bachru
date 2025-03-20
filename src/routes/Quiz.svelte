@@ -101,7 +101,7 @@
 
   // instead of adding just the topic file names make it like courseId:filename; you can access courseId from question.courseId
   //
-  function quizStudyPlan() {
+  function createStudyPlan() {
     const topicCounts = tempstate.quiz.questions.reduce((acc, question) => {
       if (question.isAnswered && question.metadata.topic) {
         const topic = question.metadata.topic.filename;
@@ -109,10 +109,11 @@
           correct: 0,
           total: 0,
           title: question.metadata.topic.title,
-          courseId: question.courseId,
-          courseTitle: question.courseTitle,
-          chapterTitle: question.chapterTitle,
-          chapterFilename: question.chapterFilename,
+          courseId: question.metadata.courseId,
+          courseTitle: question.metadata.courseTitle,
+          grade: question.metadata.grade,
+          chapterTitle: question.metadata.chapterTitle,
+          chapterFilename: question.metadata.chapterFilename,
         };
         acc[topic].total++;
         if (question.isUserCorrect) acc[topic].correct++;
@@ -191,13 +192,6 @@
       ),
     };
   }
-  function matricStudyPlan() {}
-
-  function createStudyPlan() {
-    if (tempstate.quiz.focus == "normal" || tempstate.quiz.focus == "exitexam")
-      return quizStudyPlan();
-    if (tempstate.quiz.focus == "matric") return matricStudyPlan();
-  }
 
   function finishQuiz() {
     if (timerInterval) clearInterval(timerInterval);
@@ -269,6 +263,13 @@
         }
       }
     }
+  });
+
+  $effect(() => {
+    console.log(
+      "Current question: ",
+      $state.snapshot(tempstate.quiz.questions[currentQuestionIndex].metadata),
+    );
   });
 </script>
 

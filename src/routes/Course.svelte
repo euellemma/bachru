@@ -2,7 +2,7 @@
   import { Button } from "$lib/components/ui/button";
   import { ArrowLeft, BookOpen, Play, ChevronDown } from "lucide-svelte";
   import { push } from "svelte-spa-router";
-  import { slide } from "svelte/transition";
+  import { slide, blur } from "svelte/transition";
   import { permstate, save, tempstate } from "../lib/state.svelte";
   import { onMount } from "svelte";
   import type { Course, Chapter, Topic } from "../types.d.ts";
@@ -23,7 +23,7 @@
       const { data } = await getCourse(params.courseId);
       courseData = data;
       permstate.allCourses = permstate.allCourses || [];
-      permstate.allCourses.push(data);
+      permstate.allCourses.unshift(data);
       save(permstate);
     }
     updateTopicStatus();
@@ -86,11 +86,9 @@
   const toggleChapter = (chapter: { isExpanded: boolean }) => {
     chapter.isExpanded = !chapter.isExpanded;
   };
-
-  $inspect("courseData inspected", courseData);
 </script>
 
-<div class="bg-blue-500">
+<div in:blur={{ duration: 150 }} class="bg-blue-500">
   <div class="px-4 py-6 rounded-b-3xl">
     <div class="flex mb-4 gap-2">
       <div class="flex-grow">
@@ -192,3 +190,4 @@
     {/if}
   </div>
 </div>
+in blur

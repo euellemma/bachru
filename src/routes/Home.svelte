@@ -10,6 +10,7 @@
     Plus,
     CheckCircle,
   } from "lucide-svelte";
+  import { blur } from "svelte/transition";
   import { permstate, save } from "../lib/state.svelte";
   import { push } from "svelte-spa-router";
   import {
@@ -42,7 +43,22 @@
   const confirmRemoveCourse = () => {
     console.log("yes remove this course", courseToDelete);
     confirmDeleteDialog = false;
-    courseToDelete = null;
+    if (courseToDelete) {
+      // Find the course index
+      const courseIndex = permstate.myCourses.findIndex(
+        (course) => course.courseId === courseToDelete,
+      );
+
+      // Remove the course if found
+      if (courseIndex !== -1) {
+        permstate.myCourses.splice(courseIndex, 1);
+        save(permstate);
+      } else {
+        console.log("wtf course not found to be deleted");
+      }
+    } else {
+      console.log("idk what kind of error this is");
+    }
   };
 
   const cancelRemoveCourse = () => {
@@ -121,6 +137,7 @@
 
 <div
   class="container mx-auto p-4 pt-12 pb-20 bg-accent min-h-screen flex flex-col"
+  in:blur={{ duration: 150 }}
 >
   <div class="flex">
     <div class="flex-1 flex items-center mb-4 rounded-lg">

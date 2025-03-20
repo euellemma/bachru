@@ -1,7 +1,7 @@
 <script lang="ts">
   import {
-    X,
     Star,
+    X,
     Clock,
     CheckSquare,
     PlayCircle,
@@ -14,11 +14,25 @@
   import { push } from "svelte-spa-router";
 
   let count = $state(0);
-  let showContent = $state(false);
   let correctAnswers = $state(0);
   let totalQuestions = $state(0);
   let timeTaken = $state(0);
   let performanceMessage = $state("");
+
+  function formatTime(totalSeconds: number): string {
+    const minutes = Math.floor(totalSeconds / 60);
+    const remainingSeconds = totalSeconds % 60;
+    return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+  }
+
+  function getPerformanceMessage(percentage: number): string {
+    if (percentage >= 90) return "Outstanding!";
+    if (percentage >= 80) return "Excellent!";
+    if (percentage >= 70) return "Great Job!";
+    if (percentage >= 60) return "Good Work!";
+    if (percentage >= 50) return "Nice Effort!";
+    return "Keep Practicing!";
+  }
 
   function goBackUntilUrl(searchString: string) {
     const navigateBack = () => {
@@ -41,21 +55,6 @@
     };
 
     navigateBack();
-  }
-
-  function formatTime(totalSeconds: number): string {
-    const minutes = Math.floor(totalSeconds / 60);
-    const remainingSeconds = totalSeconds % 60;
-    return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
-  }
-
-  function getPerformanceMessage(percentage: number): string {
-    if (percentage >= 90) return "Outstanding!";
-    if (percentage >= 80) return "Excellent!";
-    if (percentage >= 70) return "Great Job!";
-    if (percentage >= 60) return "Good Work!";
-    if (percentage >= 50) return "Nice Effort!";
-    return "Keep Practicing!";
   }
 
   onMount(() => {
@@ -89,16 +88,12 @@
         requestAnimationFrame(animate);
       } else {
         count = targetScore;
-        showContent = true;
       }
     };
 
     requestAnimationFrame(animate);
   });
 
-  function handleClose() {
-    console.log("idk where to go man");
-  }
   const moreQuestions = () => {
     push(`/select-topics`);
   };
@@ -111,12 +106,9 @@
   transition:fade={{ duration: 200 }}
   class="min-h-screen bg-blue-500 flex flex-col"
 >
-  <div class="p-4">
-    <button onclick={() => goBackUntilUrl("main")}>
-      <X class="h-6 w-6 text-white" />
-    </button>
-  </div>
-
+  <button class="py-6 px-4" onclick={() => goBackUntilUrl("home")}>
+    <X color="white" />
+  </button>
   <div class="flex flex-col flex-1 items-center justify-center">
     <div class="flex items-center justify-center gap-3 mb-4">
       <Star class="h-12 w-12 fill-yellow-400 text-yellow-400" />

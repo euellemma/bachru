@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { ArrowLeft, BookOpen, Loader2, Play } from "lucide-svelte";
-  import { slide } from "svelte/transition";
+  import { slide, blur } from "svelte/transition";
   import { permstate, tempstate, save } from "$lib/state.svelte";
   import { onMount } from "svelte";
   import { push } from "svelte-spa-router";
@@ -75,7 +75,7 @@
   }
 </script>
 
-<div class="bg-blue-500">
+<div in:blur={{ duration: 150 }} class="bg-blue-500">
   <div class="px-4 py-6 rounded-b-3xl">
     <div class="flex mb-4 gap-2">
       <div class="flex-grow">

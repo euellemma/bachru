@@ -1,15 +1,9 @@
-<script>
-  import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "$lib/components/ui/card";
+<script lang="ts">
+  import { Card, CardContent, CardHeader } from "$lib/components/ui/card";
   import { Button } from "$lib/components/ui/button";
   import {
     PanelRight,
+    Loader,
     ArrowRight,
     BookOpen,
     Video,
@@ -24,6 +18,38 @@
   } from "lucide-svelte";
   import { blur, scale } from "svelte/transition";
   import { push } from "svelte-spa-router";
+  import { getCourseForEduFocus } from "$lib/api";
+  import { permstate, save } from "$lib/state.svelte";
+  import type { EduFocus } from "../types.d.ts";
+
+  let loading = $state(false);
+
+  const handleContinue = async () => {
+    loading = true;
+
+    try {
+      const eduFocus = permstate.userInfo?.eduFocus as EduFocus;
+      const deptOrGrade =
+        eduFocus === "highschool"
+          ? permstate.userInfo?.grade
+          : permstate.userInfo?.dept;
+
+      if (eduFocus && deptOrGrade) {
+        const response = await getCourseForEduFocus(eduFocus, deptOrGrade);
+
+        if (response.data) {
+          permstate.myCourses = response.data;
+          save(permstate);
+        }
+      }
+
+      push("/search-courses");
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    } finally {
+      loading = false;
+    }
+  };
 </script>
 
 <div class="relative min-h-screen flex justify-center overflow-hidden flex-col">
@@ -61,15 +87,11 @@
             </CardHeader>
             <CardContent class="p-3">
               <div class="space-y-2 font-bold">
-                {#each [{ icon: BookOpen, text: "Read" }, { icon: Video, text: "Videos" }, { icon: Brain, text: "Simplified" }, { icon: Lightbulb, text: "Fun Facts" }] as item}
+                {#each [{ icon: BookOpen, text: "Read" }, { icon: Video, text: "Videos" }, { icon: Brain, text: "Simplified" }, { icon: Lightbulb, text: "Fun Facts" }] as item (item)}
                   <div
                     class="flex items-center gap-1 p-2 hover:bg-black hover:bg-opacity-30 rounded-md transition-all cursor-pointer text-sm"
                   >
-                    <svelte:component
-                      this={item.icon}
-                      size={24}
-                      class="text-white p-1 rounded-md"
-                    />
+                    <item.icon size={24} class="text-white p-1 rounded-md" />
                     <span>{item.text}</span>
                   </div>
                 {/each}
@@ -90,15 +112,11 @@
             </CardHeader>
             <CardContent class="p-3">
               <div class="space-y-2 font-bold">
-                {#each [{ icon: HelpCircle, text: "Hints" }, { icon: Info, text: "Explanations" }, { icon: List, text: "Study Plan" }, { icon: BookMarked, text: "Read Topics" }] as item}
+                {#each [{ icon: HelpCircle, text: "Hints" }, { icon: Info, text: "Explanations" }, { icon: List, text: "Study Plan" }, { icon: BookMarked, text: "Read Topics" }] as item (item)}
                   <div
                     class="flex items-center gap-1 p-2 hover:bg-black hover:bg-opacity-30 rounded-md transition-all cursor-pointer text-sm"
                   >
-                    <svelte:component
-                      this={item.icon}
-                      size={24}
-                      class="text-white p-1 rounded-md"
-                    />
+                    <item.icon size={24} class="text-white p-1 rounded-md" />
                     <span>{item.text}</span>
                   </div>
                 {/each}
@@ -118,10 +136,18 @@
         class="text-lg bg-blue-500 font-bold"
         variant="default"
         size="lg"
-        onclick={() => push("/main")}
+        onclick={handleContinue}
+        disabled={loading}
       >
-        Start Quiz
-        <ArrowRight class="ml-2 w-5 h-5" />
+        {#if loading}
+          Loading Courses
+          <div class="animate-spin mr-2">
+            <Loader size={20} />
+          </div>
+        {:else}
+          Start Quiz
+          <ArrowRight class="ml-2 w-5 h-5" />
+        {/if}
       </Button>
     </div>
   </div>

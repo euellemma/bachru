@@ -11,23 +11,18 @@
   } from "lucide-svelte";
   import { tempstate, permstate } from "$lib/state.svelte";
   import { push } from "svelte-spa-router";
-  import { slide, fade, fly } from "svelte/transition";
+  import { slide, fade } from "svelte/transition";
   import { Skeleton } from "$lib/components/ui/skeleton";
 
   let activeTab = $state("weak"); // 'weak' or 'strong'
+  let displayChapters = $state([]);
   let studyPlanData = $state({
     chapters: [],
   });
   let isLoading = $state(true);
-  let displayPlan = $derived({
-    chapters: studyPlanData.chapters
-      .map((chapter) => ({
-        ...chapter,
-        topics: chapter.topics.filter((topic) => topic.status === activeTab),
-      }))
-      .filter((chapter) => chapter.topics.length > 0),
-  });
-  async function createMatricOutline() {
+  function createMatricOutline() {
+    console.log("Creating matric outline study plan");
+
     const quizResult = permstate.quizResults?.[0];
     if (!quizResult) {
       console.error("No quiz result found");
@@ -37,6 +32,10 @@
 
     const weakTopics = quizResult.weakTopics || [];
     const strongTopics = quizResult.strongTopics || [];
+
+    console.log(
+      `Matric outline - weak topics: ${weakTopics.length}, strong topics: ${strongTopics.length}`,
+    );
 
     const result = {
       chapters: [],
@@ -76,12 +75,13 @@
       });
     });
 
-    // Convert map to array using the order we tracked
     result.chapters = chapterOrder.map((key) => chapterMap.get(key));
-
+    console.log(
+      `Matric outline created with ${result.chapters.length} chapters`,
+    );
     return result;
   }
-  async function createExitOutline() {
+  function createExitOutline() {
     const quizResult = permstate.quizResults?.[0];
     if (!quizResult) {
       console.error("No quiz result found");
@@ -91,6 +91,10 @@
 
     const weakTopics = quizResult.weakTopics || [];
     const strongTopics = quizResult.strongTopics || [];
+
+    console.log(
+      `Exit exam outline - weak topics: ${weakTopics.length}, strong topics: ${strongTopics.length}`,
+    );
 
     const result = {
       chapters: [],
@@ -161,7 +165,9 @@
     return result;
   }
 
-  async function createQuizOutline() {
+  function createQuizOutline() {
+    console.log("Creating quiz outline study plan");
+
     const quizResult = permstate.quizResults?.[0];
     if (!quizResult) {
       console.error("No quiz result found");
@@ -169,8 +175,19 @@
       return;
     }
 
+    console.log(
+      "the quiz result in createQuizOutline",
+      $state.snapshot("quizResult"),
+    );
+
     const weakTopics = quizResult.weakTopics || [];
     const strongTopics = quizResult.strongTopics || [];
+
+    console.log(
+      `Quiz outline - weak topics: ${weakTopics.length}, strong topics: ${strongTopics.length}`,
+    );
+    console.log("Weak topics:", $state.snapshot(weakTopics));
+    console.log("Strong topics:", $state.snapshot(strongTopics));
 
     const result = {
       chapters: [],
@@ -212,10 +229,12 @@
     // Convert map to array using the order we tracked
     result.chapters = chapterOrder.map((key) => chapterMap.get(key));
 
+    console.log(`Quiz outline created with ${result.chapters.length} chapters`);
     return result;
   }
   onMount(async () => {
     isLoading = true;
+    console.log(`Creating study plan for quiz focus: ${tempstate.quiz.focus}`);
 
     if (tempstate.quiz.focus == "normal") studyPlanData = createQuizOutline();
     if (tempstate.quiz.focus == "exitexam") studyPlanData = createExitOutline();
@@ -223,7 +242,14 @@
     isLoading = false;
   });
 
-  // $inspect("how study plan changes", studyPlanData);
+  $effect(() => {
+    displayChapters = studyPlanData.chapters
+      .map((chapter) => ({
+        ...chapter,
+        topics: chapter.topics.filter((topic) => topic.status === activeTab),
+      }))
+      .filter((chapter) => chapter.topics.length > 0);
+  });
 
   const getStatusColor = (status: string) =>
     status === "strong"
@@ -262,6 +288,7 @@
   };
 
   const toggleChapter = (chapter: { isExpanded: boolean }) => {
+    console.log("toggleChapter called");
     chapter.isExpanded = !chapter.isExpanded;
   };
 </script>
@@ -337,7 +364,7 @@
             </div>
           </div>
         {/each}
-      {:else if displayPlan.chapters.length === 0}
+      {:else if displayChapters.length === 0}
         <!-- Empty state messages -->
         <div class="text-center py-10 px-4" in:fade={{ duration: 300 }}>
           {#if activeTab === "weak"}
@@ -365,9 +392,9 @@
           {/if}
         </div>
       {:else}
-        {#each displayPlan.chapters as chapter (chapter)}
+        {#each displayChapters as chapter (chapter)}
           <button
-            in:slide={{ duration: 300 }}
+            in:slide={{ duration: 150 }}
             class="w-full bg-blue-50 mb-2 rounded-xl px-4 py-4 flex justify-between items-center"
             onclick={() => toggleChapter(chapter)}
           >
@@ -380,52 +407,45 @@
             />
           </button>
           {#if chapter.isExpanded}
-            <div class="space-y-4 mb-8">
-              <div class="space-y-4">
-                {#each chapter.topics.filter( (topic) => (activeTab === "weak" ? topic.status === "weak" : topic.status === "strong"), ) as topic, i (topic)}
-                  <div
-                    class="p-3 rounded-lg border space-y-3 mb-4"
-                    in:fly={{ y: -50, duration: 300, delay: i * 50 }}
-                    out:fade={{ duration: 0 }}
-                  >
-                    <div class="flex items-center gap-3 flex-wrap">
-                      <div class="font-bold text-lg text-gray-900">
-                        {topic.title}
-                      </div>
-                      <div
-                        class={`flex items-center gap-2 px-3 py-0 rounded-full w-fit ${getStatusColor(topic.status)}`}
-                      >
-                        <span class="text-xs font-bold"
-                          >{getStatusText(topic.status)}</span
-                        >
-                      </div>
+            <div transition:slide={{ duration: 100 }}>
+              {#each chapter.topics.filter( (topic) => (activeTab === "weak" ? topic.status === "weak" : topic.status === "strong"), ) as topic (topic)}
+                <div class="p-3 rounded-lg border space-y-3 mb-4">
+                  <div class="flex items-center gap-3 flex-wrap">
+                    <div class="font-bold text-lg text-gray-900">
+                      {topic.title}
                     </div>
-                    <div class="flex flex-wrap gap-2">
+                    <div
+                      class={`flex items-center gap-2 px-3 py-0 rounded-full w-fit ${getStatusColor(topic.status)}`}
+                    >
+                      <span class="text-xs font-bold"
+                        >{getStatusText(topic.status)}</span
+                      >
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <Button
+                      size="sm"
+                      variant="secondary"
+                      class="flex items-center justify-center"
+                      onclick={() => readTopic(topic)}
+                    >
+                      <BookOpen class="w-4 h-4 mr-1" />
+                      <span>Read</span>
+                    </Button>
+                    {#if tempstate.quiz.focus != "matric"}
                       <Button
                         size="sm"
                         variant="secondary"
                         class="flex items-center justify-center"
-                        onclick={() => readTopic(topic)}
+                        onclick={() => practice(topic)}
                       >
-                        <BookOpen class="w-4 h-4 mr-1" />
-                        <span>Read</span>
+                        <Play class="w-4 h-4 mr-1" />
+                        <span>Practice Topic</span>
                       </Button>
-                      {#if tempstate.quiz.focus != "matric"}
-                        <Button
-                          size="sm"
-                          variant="secondary"
-                          class="flex items-center justify-center"
-                          onclick={() => practice(topic)}
-                        >
-                          <Play class="w-4 h-4 mr-1" />
-                          <span>Practice Topic</span>
-                        </Button>
-                      {/if}
-                      <span class="flex-grow"></span>
-                    </div>
+                    {/if}
                   </div>
-                {/each}
-              </div>
+                </div>
+              {/each}
             </div>
           {/if}
         {/each}

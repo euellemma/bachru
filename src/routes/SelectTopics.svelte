@@ -137,14 +137,14 @@
         .filter((topic) => topic.selected)
         .map((topic) => topic.filename),
     );
-    tempstate.selectedTopics = selectedTopics;
+    tempstate.quiz.topics = selectedTopics;
     push("/quest-type");
   }
 </script>
 
 <div class="p-8 bg-blue-50 min-h-screen flex flex-col">
   <div class="flex justify-between items-center mb-2">
-    <h1 class="text-3xl font-semibold">Select Topics</h1>
+    <h1 class="text-2xl font-semibold">Select Topics</h1>
     <Button
       onclick={handleContinue}
       disabled={isContinueDisabled}

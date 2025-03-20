@@ -23,6 +23,7 @@
   import MainScreen from "./routes/MainScreen.svelte";
   import Matric from "./routes/Matric.svelte";
   import SelectCourses from "./routes/SelectCourses.svelte";
+  import SearchCourses from "./routes/SearchCourses.svelte";
 
   const routes = {
     "/home": Home,
@@ -42,6 +43,7 @@
     "/intro-two": IntroTwo,
     "/intro-three": IntroThree,
     "/intro-four": IntroFour,
+    "/search-courses": SearchCourses,
 
     "/past-exams": PastExams,
     "/matric-subjects/:examId": MatricSubjects,

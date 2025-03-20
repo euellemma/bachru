@@ -3,7 +3,7 @@
   import { Button } from "$lib/components/ui/button";
   import { navigateToLink } from "$lib/myutils";
   import type { TopicData } from "../types.d.ts";
-  import { fade } from "svelte/transition";
+  import { fade, blur } from "svelte/transition";
   import { tempstate } from "$lib/state.svelte";
   import { push } from "svelte-spa-router";
   import { Card, CardHeader, CardTitle } from "$lib/components/ui/card";
@@ -185,7 +185,7 @@
   };
 </script>
 
-<div class="bg-blue-500 min-h-screen flex flex-col">
+<div in:blur={{ duration: 150 }} class="bg-blue-500 min-h-screen flex flex-col">
   <div class="px-4 pt-6 rounded-b-3xl">
     <div class="flex items-center mb-4 gap-2">
       <button onclick={() => history.back()}>

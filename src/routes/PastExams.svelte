@@ -3,6 +3,7 @@
   import { onMount } from "svelte";
   import { Skeleton } from "$lib/components/ui/skeleton";
   import { getExitExams, getMatricExams } from "$lib/api";
+  import { blur } from "svelte/transition";
   import { permstate, save } from "$lib/state.svelte";
   import { push } from "svelte-spa-router";
   import type { ExitExam, MatricExam } from "$lib/types";
@@ -186,9 +187,12 @@
   }
 </script>
 
-<div class="container mx-auto p-4 pt-8 bg-accent min-h-screen">
+<div
+  in:blur={{ duration: 150 }}
+  class="container mx-auto p-4 pt-8 bg-accent min-h-screen"
+>
   <div class="flex gap-4 items-center">
-    <ArrowLeft />
+    <ArrowLeft onclick={() => window.history.back()} />
     <span class="text-2xl"
       >{examFocus === "exitexam" ? "Exit Exams" : "Matriculation Exams"}</span
     >

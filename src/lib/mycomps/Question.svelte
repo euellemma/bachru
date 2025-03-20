@@ -161,10 +161,9 @@
         <div class="mt-6 space-y-6" in:slide={{ duration: 300 }}>
           {#if questionType !== "workout"}
             <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h3 id="solution" class="font-semibold mb-2 text-green-800">
-                Solution
-              </h3>
+              <h3 class="font-semibold mb-2 text-green-800">Solution</h3>
               {@html solution}
+              <span id="solution"></span>
             </div>
           {/if}
 

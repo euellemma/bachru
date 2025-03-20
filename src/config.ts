@@ -1,3 +1,4 @@
+export const devusename = "eueldev";
 export const years = [
   { value: "1", label: "1st year (Freshman)" },
   { value: "2", label: "2nd year" },

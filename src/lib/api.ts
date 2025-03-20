@@ -32,29 +32,73 @@ export async function getCourse(courseId: string): Promise<{ data: Course }> {
   }
 }
 
+export async function getCourseForEduFocus(
+  eduFocus: EduFocus,
+  deptOrGrade: string,
+): Promise<{ data: Course[] }> {
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  if (eduFocus === "undergrad") {
+    return { data: [] };
+  }
+
+  if (eduFocus === "highschool") {
+    return {
+      data: mockCourses
+        .filter((course) => course.isHighschool && course.grade === deptOrGrade)
+        .map((course) => ({ ...course, outline })),
+    };
+  }
+
+  if (eduFocus === "exitexam") {
+    return {
+      data: mockCourses
+        .filter(
+          (course) => course.isExitCore && course.fields.includes(deptOrGrade),
+        )
+        .map((course) => ({ ...course, outline })),
+    };
+  }
+
+  return { data: [] };
+}
+
+export async function requestCourse(courseName: string): Promise<boolean> {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  console.log(`User requested to add course: ${courseName}`);
+  // In a real implementation, this would make an API call to save the course
+  // For now, we'll just simulate a successful operation
+  return true;
+}
+
 export async function searchCourses(
   query: string = "",
+  eduFocus: EduFocus | "" = "",
   limit: number = 20,
-  fields?: string[],
 ): Promise<{ data: Course[] }> {
   await new Promise((resolve) => setTimeout(resolve, 300));
   const lowerQuery = query.toLowerCase();
-  const filteredCourses = mockCourses.filter((course) => {
-    if (fields && fields.length > 0) {
-      return (
-        (fields.includes("title") &&
-          course.courseTitle.toLowerCase().includes(lowerQuery)) ||
-        (fields.includes("fields") &&
-          course.fields.some((field) =>
-            field.toLowerCase().includes(lowerQuery),
-          ))
-      );
-    }
-    return (
+
+  let filteredCourses = mockCourses;
+
+  // Filter by eduFocus first
+  if (eduFocus === "highschool") {
+    filteredCourses = mockCourses.filter((course) => course.isHighschool);
+  } else if (eduFocus === "undergrad" || eduFocus === "exitexam") {
+    filteredCourses = mockCourses.filter((course) => !course.isHighschool);
+  }
+
+  // If query is empty, return all courses matching the eduFocus filter
+  if (query === "") {
+    return { data: filteredCourses.slice(0, limit) };
+  }
+
+  // Apply query filter
+  filteredCourses = filteredCourses.filter(
+    (course) =>
       course.courseTitle.toLowerCase().includes(lowerQuery) ||
-      course.fields.some((field) => field.toLowerCase().includes(lowerQuery))
-    );
-  });
+      course.fields.some((field) => field.toLowerCase().includes(lowerQuery)),
+  );
 
   return { data: filteredCourses.slice(0, limit) };
 }
